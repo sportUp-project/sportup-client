@@ -6,6 +6,7 @@ import Navbar from './components/Navbar/Navbar'
 import ProfilePage from './pages/ProfilePage'
 import ProfileEditPage from './pages/ProfileEditPage'
 import ActivitiesAdd from './pages/ActivitiesAdd';
+import ActivityDetails from './pages/ActivityDetails'
 
 import './App.css';
 
@@ -20,6 +21,7 @@ function App() {
         <Route path={'/profile/:id/'} element={<ProfilePage />} />
         <Route path={'/profile/:id/edit'} element={<ProfileEditPage />} />
         <Route path={'/activities/add'} element={<ActivitiesAdd />} />
+        <Route path={'/activities/:id'} element={<ActivityDetails />} />
       </Routes>
     </div>
   );
