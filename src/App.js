@@ -1,7 +1,7 @@
 import {Routes, Route} from 'react-router-dom'
 import LoginPage from './pages/LoginPage'
 import SignupPage from './pages/SignupPage';
-import Homepage from './pages/Homepage'
+import Homepage from './pages/HomePage'
 import Navbar from './components/Navbar/Navbar'
 import './App.css';
 
@@ -13,6 +13,7 @@ function App() {
         <Route path={'/'} element={<Homepage />} />
         <Route path={'/login'} element={<LoginPage/>} />
         <Route path={'/signup'} element={<SignupPage />} />
+        
       </Routes>
     </div>
   );
