@@ -5,6 +5,7 @@ import Homepage from './pages/HomePage'
 import Navbar from './components/Navbar/Navbar'
 import ProfilePage from './pages/ProfilePage'
 import ProfileEditPage from './pages/ProfileEditPage'
+import ActivitiesAdd from './pages/ActivitiesAdd';
 
 import './App.css';
 
@@ -18,7 +19,7 @@ function App() {
         <Route path={'/signup'} element={<SignupPage />} />
         <Route path={'/profile/:id/'} element={<ProfilePage />} />
         <Route path={'/profile/:id/edit'} element={<ProfileEditPage />} />
-        {/* <Route path={'/activities/add'} element={<Placeholder />} /> */}
+        <Route path={'/activities/add'} element={<ActivitiesAdd />} />
       </Routes>
     </div>
   );
