@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 
-export default function Signup(props) {
+export default function SignupForm(props) {
   const navigate = useNavigate();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('')
@@ -52,7 +52,6 @@ export default function Signup(props) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <label htmlFor="campus">Campus</label>
         <button type='submit'>Sign up</button>
       { errorMessage && <p className="error-message">{errorMessage}</p> }
       </form>

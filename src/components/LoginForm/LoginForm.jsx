@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 import './LoginForm.css'
 
-export default function Login(props) {
+export default function LoginForm(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
@@ -44,7 +44,7 @@ export default function Login(props) {
         onChange={handleEmail}
       />
 
-      <label forHtml="password">Password:</label>
+      <label htmlFor="password">Password:</label>
       <input
         type="password"
         name="password"
