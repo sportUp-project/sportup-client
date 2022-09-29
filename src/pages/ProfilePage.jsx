@@ -35,6 +35,7 @@ export default function ProfilePage(props) {
     <div className="profile-page">
       <ProfileDetails userInfo={userInfo} />
       {user._id === userInfo._id && <Link to={`/profile/${user._id}/edit`}>Edit profile </Link>}
+      {user._id === userInfo._id && <Link to={`/activities/add`}>Add an activity</Link>}
     </div>
 
   )

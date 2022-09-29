@@ -18,6 +18,7 @@ function App() {
         <Route path={'/signup'} element={<SignupPage />} />
         <Route path={'/profile/:id/'} element={<ProfilePage />} />
         <Route path={'/profile/:id/edit'} element={<ProfileEditPage />} />
+        {/* <Route path={'/activities/add'} element={<Placeholder />} /> */}
       </Routes>
     </div>
   );
