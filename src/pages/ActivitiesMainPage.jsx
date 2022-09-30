@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react'
 import axios from 'axios'
 import ActivitiesList from '../components/ActivitiesList/ActivitiesList'
 import SportsList from '../components/SportsList/SportsList'
+import SportsDropdown from '../components/SportsDropdown/SportsDropdown'
 
 export default function ActivitiesMainPage(props) {
   const [activities, setActivities] = useState([])
@@ -30,8 +31,10 @@ export default function ActivitiesMainPage(props) {
 
   return (
     <div className="activities-main">
-      
+      <h3>Choose from our most popular sports:</h3>
       <SportsList sports={sports} />
+      <h3>Or select from all sports: </h3>
+      <SportsDropdown sports={sports} />
       <ActivitiesList activities={activities} />
     </div>
   )
