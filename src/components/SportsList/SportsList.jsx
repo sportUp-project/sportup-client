@@ -1,16 +1,16 @@
-
+import SportCard from "../SportCard/SportCard"
+import './SportsList.css'
 export default function SportsList(props) {
   const {sports} = props
 
   return(
-    sports.map(sport => {
-      return (
-        <div className="sport-card">
-          <h3>{sport.name}</h3>
-          <img src={sport.iconUrl} alt={sport.name} />
-        </div>
-      )
-    })
+    <div className="sports-list">
+      {sports.map(sport => {
+        return (
+            <SportCard key={sport._id} sport={sport} />
+        )
+      })}
+    </div>
   )
 
 }
