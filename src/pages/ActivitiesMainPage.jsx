@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react'
 import axios from 'axios'
 import ActivitiesList from '../components/ActivitiesList/ActivitiesList'
+import SportsList from '../components/SportsList/SportsList'
 
 export default function ActivitiesMainPage(props) {
   const [activities, setActivities] = useState([])
@@ -23,13 +24,15 @@ export default function ActivitiesMainPage(props) {
     .catch(err => console.log(err))
   }, [])
 
-  console.log(sports)
-  console.log(activities)
   if (activities.length === 0  || sports.length === 0) {
     return <span>Loading...</span>
   }
 
   return (
-    <ActivitiesList activities={activities} />
+    <div className="activities-main">
+
+      <SportsList sports={sports} />
+      <ActivitiesList activities={activities} />
+    </div>
   )
 }
