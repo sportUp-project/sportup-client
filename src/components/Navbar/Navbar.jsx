@@ -13,6 +13,7 @@ export default function Navbar(props) {
   }
   return (
     <div className="main-navbar">
+      <Link to={"/activities"}>Activities</Link>
       {!isLoggedIn && 
         <>
         <Link to={"/login"}>Log in </Link>

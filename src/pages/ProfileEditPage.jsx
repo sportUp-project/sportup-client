@@ -17,7 +17,7 @@ export default function ProfileEditPage(props) {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
-        setUserInfo(response.data);
+        setUserInfo(response.data.user);
       })
       .catch((err) => console.log(err));
   }, []);

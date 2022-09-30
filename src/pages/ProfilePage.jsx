@@ -20,13 +20,14 @@ export default function ProfilePage(props) {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
-        setUserInfo(response.data);
+        const user = response.data.user
+        setUserInfo(user);
       })
       .catch((err) => console.log(err));
   }, []);
 
-  console.log({userInfo})
-  console.log({user})
+  // console.log({userInfo})
+  // console.log({user})
   if (userInfo === null) {
     return <span>Loading</span>;
   }

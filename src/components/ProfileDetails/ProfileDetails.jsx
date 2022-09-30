@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 
 export default function ProfileDetails(props) {
   const { userInfo } = props;
+  console.log(userInfo)
   return (
     <div className="profile-holder">
       <h4>{userInfo.name}</h4>
