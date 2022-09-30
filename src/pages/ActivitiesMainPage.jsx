@@ -30,7 +30,7 @@ export default function ActivitiesMainPage(props) {
 
   return (
     <div className="activities-main">
-
+      
       <SportsList sports={sports} />
       <ActivitiesList activities={activities} />
     </div>

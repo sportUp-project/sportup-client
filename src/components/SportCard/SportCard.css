@@ -1,5 +1,6 @@
 .sport-card {
     width: 100px;
+    cursor: pointer;
 }
 .sport-card img {
     width: 100%;
