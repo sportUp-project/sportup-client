@@ -11,7 +11,12 @@ export default function ProfileDetails(props) {
       <h4>Description: {userInfo.description}</h4>
       <h4>Sports: {userInfo.sports}</h4>
       <h4>Joined Activites:{userInfo.joinedActivities}</h4>
-      <h4>User created activities: {userInfo.userActivities}</h4>
+      {userInfo.userActivities.map(act => {
+        return (
+          <h4 key={act._id}>{act.name}</h4>
+        )
+      })}
+      {/* <h4>User created activities: {userInfo.userActivities[0]}</h4> */}
     </div>
   );
 }
