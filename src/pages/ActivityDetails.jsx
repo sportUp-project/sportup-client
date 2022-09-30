@@ -20,12 +20,12 @@ export default function ActivityDetails(props) {
   if (activity === null) {
     return <span>Loading...</span>
   }
-  
+  console.log(activity)
   return (
     <div className="activity-details">
       <h4>{activity.name}</h4>
       <h4>{activity.createdBy.name}</h4>
-      <h4>{activity.sport.name}</h4>
+      <h4>{activity.sport?.name}</h4>
     </div>
   )
 }

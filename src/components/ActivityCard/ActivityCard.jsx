@@ -12,7 +12,6 @@ export default function ActivityCard(props) {
       <h3>{activity.name}</h3>
       <p>Description:{activity.description}</p>
       <p>Date:{activity.activityDate}</p>
-      <p>Location: {activity.location}</p>
       <p>Duration {activity.duration}</p>
       <p>Joined by: {activity.members.map(member => {
         return (

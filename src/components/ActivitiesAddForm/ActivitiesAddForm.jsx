@@ -1,23 +1,44 @@
 import './ActivitiesAddForm.css'
-import {useState, useEffect, useContext} from 'react'
+import {useState, useEffect, useContext, useCallback, useRef} from 'react'
 import { AuthContext } from '../../context/auth.context'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import Map, {Marker} from 'react-map-gl'
+
 
 export default function ActivitiesAddForm(props) {
-  const {user} = useContext(AuthContext)
+  // map states
+  const [viewState, setViewState] = useState({
+    longitude: -100,
+    latitude: 40,
+    zoom: 11,
+  });
 
+
+  const {user} = useContext(AuthContext)
   const [name,setName] = useState('')
   const [sport,setSport] = useState('')
   const [sportList,setSportList] = useState([])
   const [description,setDescription] = useState('')
   const [duration,setDuration] = useState(0)
   const [activityDate,setActivityDate] = useState('')
-  const [location,setLocation] = useState('')
+  // const [location,setLocation] = useState('')
   const storedToken = localStorage.getItem('authToken')
   const navigate = useNavigate()
 
+  function getUserLocation() {
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(position => {
+      setViewState({longitude:position.coords.longitude, latitude: position.coords.latitude}) 
+      })
+    } else {
+      setViewState({longitude: 52.520008, latitude: 13.404954})
+    }
+  }
+
   useEffect(() => {
+    getUserLocation()
+
     axios.get(`${process.env.REACT_APP_API_URL}/api/sports`)
     .then(response => setSportList(response.data))
     .catch(err => console.log(err))
@@ -32,7 +53,7 @@ export default function ActivitiesAddForm(props) {
       description,
       duration,
       activityDate,
-      location,
+      location: {long: viewState.longitude, lat: viewState.latitude},
       sport
     }
     axios.post(
@@ -48,12 +69,15 @@ export default function ActivitiesAddForm(props) {
   }
 
   return (
+    <div className="activity-add-form">
+
     <form onSubmit={handleSubmit}>
       <label htmlFor="name">Name</label>
       <input type="text" name="name" id="name" value={name} onChange={e => setName(e.target.value)} />
 
       <label htmlFor="sport">Sport</label>
-      <select name="sport" id="sport" value={sport} onChange={e => setSport(e.target.value)}>
+      <select name="sport" id="sport" onChange={e => setSport(e.target.value)} defaultValue="-- select a sport --">
+        <option disabled> -- select a sport -- </option>
         {sportList.map(sport => {
           return (
             <option key={sport._id} value={sport._id}>{sport.name}</option>
@@ -70,21 +94,27 @@ export default function ActivitiesAddForm(props) {
       <label htmlFor="date">Date and Hour</label>
       <input type="datetime-local" name="date" id="date" value={activityDate} onChange={e=>setActivityDate(e.target.value)}/>
 
-      <label htmlFor="location">Location</label>
-      <input type="text" name="location" id="location" value={location} onChange={e=>setLocation(e.target.value)}/>
+      {/* <label htmlFor="location">Location</label>
+      <input type="text" name="location" id="location" value={location} onChange={e=>setLocation(e.target.value)}/> */}
 
 
       <button type='submit'>Submit</button>
     </form>
+    
+    <Map
+      {...viewState}
+      style={{ height: 400, width: 400 }}
+      onMove={(evt) => setViewState(evt.viewState)}
+      mapStyle="mapbox://styles/mapbox/streets-v9"
+
+    >
+      <Marker
+        longitude={viewState.longitude}
+        latitude={viewState.latitude}
+      ></Marker>
+
+    </Map>
+    </div>
+    
   )
 }
-
-// name: { type: String, required: true }, 
-//     createdBy: { type: Schema.Types.ObjectId, ref: 'User' },
-//     sport: { type: Schema.Types.ObjectId, ref: 'Sport' },
-//     description: String,
-//     duration: String,
-//     activityDate: String,
-//     members: [{ type: Schema.Types.ObjectId, ref: 'User' }],
-//     location: String,
-//     pictures:  [{ type: String}]
