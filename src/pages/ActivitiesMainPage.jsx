@@ -35,6 +35,7 @@ export default function ActivitiesMainPage(props) {
       <SportsList sports={sports} />
       <h3>Or select from all sports: </h3>
       <SportsDropdown sports={sports} />
+      <h3>Latest added activities</h3>
       <ActivitiesList activities={activities} />
     </div>
   )

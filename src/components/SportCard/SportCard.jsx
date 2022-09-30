@@ -11,7 +11,8 @@ export default function SportCard(props) {
   return (
     <div className="sport-card" onClick={handleRouting}>
       <img src={sport.iconUrl} alt={sport.name} />
-      <h3>{sport.name}</h3>
+      <span>{sport.name}</span>
+      <span>{sport.activities.length} activities</span>
     </div>
   )
 }

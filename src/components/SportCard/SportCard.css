@@ -1,6 +1,8 @@
 .sport-card {
-    width: 100px;
+    display: flex;
+    width: 70px;
     cursor: pointer;
+    flex-direction: column;
 }
 .sport-card img {
     width: 100%;
