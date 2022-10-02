@@ -8,9 +8,6 @@ export default function ActivityDetails(props) {
   const [activity, setActivity] = useState(null)
   const storedToken = localStorage.getItem('authToken')
   const navigate = useNavigate()
-  const [viewState, setViewState] = useState({
-
-  });
 
 
     // map states
@@ -40,8 +37,7 @@ export default function ActivityDetails(props) {
         latitude: activity.location.lat,
         zoom: 12
       }}
-      style={{ height: 400, width: 400 }}
-      onMove={(evt) => setViewState(evt.viewState)}
+      style={{ height: 300, width: 300 }}
       mapStyle="mapbox://styles/mapbox/streets-v9"
 
     >
@@ -64,8 +60,13 @@ export default function ActivityDetails(props) {
     <div className="activity-details">
       <h4>{activity.name}</h4>
       <p>{activity.createdBy.name}</p>
-      <p>{activity.sport?.name}</p>
-      <p></p>
+      <p><Link to={`/activities/sport/${activity.sport._id}`}>{activity.sport?.name}</Link></p>
+      <p>{activity.description}</p>
+      <p>Duration: {activity.duration} hours</p>
+      <p>Members joining:</p>
+      {activity.members.map(member => {
+        return <p>{member.name}</p>
+      })}
 
 
       {/* conditionally render map to avoid errors */}
