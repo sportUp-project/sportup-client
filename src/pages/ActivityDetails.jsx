@@ -59,9 +59,10 @@ export default function ActivityDetails(props) {
   return (
     <div className="activity-details">
       <h4>{activity.name}</h4>
-      <p>{activity.createdBy.name}</p>
+      <Link to={`/profile/${activity.createdBy._id}`}><p>{activity.createdBy.name}</p></Link>
       <p><Link to={`/activities/sport/${activity.sport._id}`}>{activity.sport?.name}</Link></p>
       <p>{activity.description}</p>
+      <p>{activity.activityDate}</p>
       <p>Duration: {activity.duration} hours</p>
       <p>Members joining:</p>
       {activity.members.map(member => {
