@@ -1,5 +1,6 @@
 import "./ProfileDetails.css";
 import {Link} from 'react-router-dom'
+import FollowBtn from "../FollowBtn/FollowBtn";
 
 export default function ProfileDetails(props) {
   const { userInfo } = props;
@@ -27,6 +28,7 @@ export default function ProfileDetails(props) {
         return <p key={activity._id}>{activity.name}</p>
       })}
       </h4>
+      <FollowBtn />
     </div>
   );
 }
