@@ -66,8 +66,16 @@ export default function ActivityDetails(props) {
     })
     .catch(err => console.log(err))
   }
+  function handleLeave(e) {
+    e.preventDefault();
+    axios.get(`${process.env.REACT_APP_API_URL}/api/activities/${activity._id}/leave`,
+    {headers: { Authorization: `Bearer ${storedToken}` }})
+    .then(response => {
+      setActivity(response.data)
+    })
+    .catch(err => console.log(err))
+  }
 
-  
 
   
 
@@ -93,7 +101,8 @@ export default function ActivityDetails(props) {
       <p>{dateFormatted}</p>
       <p>Duration: {activity.duration} hours</p>
       <p>Members joining:</p>
-      {activity.createdBy._id !== user._id && <button onClick={handleJoin}>Join this activity</button>}
+      {activity.createdBy._id !== user._id && !user.joinedActivities.includes(activity._id) ? <button onClick={handleJoin}>Join this activity</button> : <button>Leave activity</button>}
+
       {activity.members.map((member) => {
         return <p key={member._id}>{member.name}</p>;
       })}
