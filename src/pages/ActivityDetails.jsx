@@ -10,8 +10,10 @@ export default function ActivityDetails(props) {
   const [activity, setActivity] = useState(null);
   const storedToken = localStorage.getItem("authToken");
   const navigate = useNavigate();
-  const {user} = useContext(AuthContext)
-  console.log(user)
+  const { user } = useContext(AuthContext);
+  
+
+
 
   // fetch the data from server
   useEffect(() => {
@@ -56,36 +58,42 @@ export default function ActivityDetails(props) {
   }
   const dateFormatted = activity ? renderDate() : null;
 
-
   function handleJoin(e) {
-    e.preventDefault()
-    axios.get(`${process.env.REACT_APP_API_URL}/api/activities/${activity._id}/join`,
-    {headers: { Authorization: `Bearer ${storedToken}` }})
-    .then(response => {
-      setActivity(response.data)
-    })
-    .catch(err => console.log(err))
+    e.preventDefault();
+    axios
+      .get(
+        `${process.env.REACT_APP_API_URL}/api/activities/${activity._id}/join`,
+        { headers: { Authorization: `Bearer ${storedToken}` } }
+      )
+      .then((response) => {
+        setActivity(response.data);
+      })
+      .catch((err) => console.log(err));
   }
   function handleLeave(e) {
     e.preventDefault();
-    axios.get(`${process.env.REACT_APP_API_URL}/api/activities/${activity._id}/leave`,
-    {headers: { Authorization: `Bearer ${storedToken}` }})
-    .then(response => {
-      setActivity(response.data)
-    })
-    .catch(err => console.log(err))
+    axios
+      .get(
+        `${process.env.REACT_APP_API_URL}/api/activities/${activity._id}/leave`,
+        { headers: { Authorization: `Bearer ${storedToken}` } }
+      )
+      .then((response) => {
+        setActivity(response.data);
+      })
+      .catch((err) => console.log(err));
   }
-
-
-  
 
   //show loading while fetching the data
   if (activity === null) {
     return <span>Loading...</span>;
   }
 
-
   console.log(activity);
+  console.log(user)
+
+  console.log(activity.members.filter(member => member._id === user._id).length === 0)
+  console.log(activity.createdBy._id !== user._id)
+  console.log(activity.members.filter(member => member._id === user._id))
   return (
     <div className="activity-details">
       <h4>{activity.name}</h4>
@@ -101,13 +109,18 @@ export default function ActivityDetails(props) {
       <p>{dateFormatted}</p>
       <p>Duration: {activity.duration} hours</p>
       <p>Members joining:</p>
-      {activity.createdBy._id !== user._id && !user.joinedActivities.includes(activity._id) ? <button onClick={handleJoin}>Join this activity</button> : <button>Leave activity</button>}
 
       {activity.members.map((member) => {
         return <p key={member._id}>{member.name}</p>;
       })}
 
-      
+      {activity.createdBy._id !== user._id && activity.members.filter(member => member._id !== user._id).length === 0
+      ? (
+        <button onClick={handleJoin}>Join this activity</button>
+      ) : (
+        <button onClick={handleLeave}>Leave activity</button>
+      )}
+
 
       {/* conditionally render map to avoid errors */}
       {activity !== null && renderMap()}
