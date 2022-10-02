@@ -50,4 +50,4 @@ function FollowBtn() {
     )
 }
 
-export default FollowBtn;
+export default FollowBtn; 
