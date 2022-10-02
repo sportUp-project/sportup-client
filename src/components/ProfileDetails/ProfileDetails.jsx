@@ -2,8 +2,10 @@ import "./ProfileDetails.css";
 import {Link} from 'react-router-dom'
 import FollowBtn from "../FollowBtn/FollowBtn";
 
+
 export default function ProfileDetails(props) {
   const { userInfo } = props;
+
   console.log(userInfo)
   return (
     <div className="profile-holder">
@@ -28,6 +30,9 @@ export default function ProfileDetails(props) {
         return <p key={activity._id}>{activity.name}</p>
       })}
       </h4>
+      { userInfo.followers.length > 0 && <p>Followers: {userInfo.followers.length}</p> }
+      { userInfo.follows.length > 0 && <p>Followers: {userInfo.follows.length}</p> }
+      
       <FollowBtn />
     </div>
   );
