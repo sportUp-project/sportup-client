@@ -1,27 +1,39 @@
 import "./ProfileDetails.css";
-import {Link} from 'react-router-dom'
+import FollowBtn from "../FollowBtn/FollowBtn";
+
 
 export default function ProfileDetails(props) {
   const { userInfo } = props;
+
   console.log(userInfo)
   return (
     <div className="profile-holder">
       <h4>{userInfo.name}</h4>
       <img src={userInfo.image} alt="profile" />
       <h4>Description: {userInfo.description}</h4>
-      <h4>Sports: {userInfo.sports}</h4>
-      <h4>Joined Activites:{userInfo.joinedActivities.length}</h4>
-      {userInfo.joinedActivities.map(act => {
-        return (
-          <Link to={`/activities/${act._id}`}>{act.name}</Link>
-        )
-      })} 
-      <h4>Created Activities:{userInfo.userActivities}</h4>
-      {userInfo.userActivities.map(act => {
-        return (
-          <p key={act._id}>{act.name}</p>
-        )
+
+      <h4>Sports: 
+      {userInfo.sports.map((sport)=> {
+        return <div key={sport._id}>
+          <img src={sport.iconUrl} alt={sport.name} />
+          <p>{sport.name}</p>
+        </div>
       })}
+      </h4>
+      <h4>Joined Activites:
+      {userInfo.joinedActivities.map((activity)=> {
+        return <p key={activity._id}>{activity.name}</p>
+      })}
+      </h4>
+      <h4>User created activities: 
+      {userInfo.userActivities.map((activity)=> {
+        return <p key={activity._id}>{activity.name}</p>
+      })}
+      </h4>
+      { userInfo.followers.length > 0 && <p>Followers: {userInfo.followers.length}</p> }
+      { userInfo.follows.length > 0 && <p>Followers: {userInfo.follows.length}</p> }
+      
+      <FollowBtn />
     </div>
   );
 }
