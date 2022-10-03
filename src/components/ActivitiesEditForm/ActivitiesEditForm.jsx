@@ -1,0 +1,122 @@
+import './ActivitiesEditForm.css'
+import { useNavigate } from 'react-router-dom'
+import Map, {Marker} from 'react-map-gl'
+import {useState, useEffect, useContext,} from 'react'
+import { AuthContext } from '../../context/auth.context'
+import axios from 'axios'
+
+export default function ActivitiesEditForm(props) {
+
+  const {activity} = props
+
+    // map states
+    const [viewState, setViewState] = useState({
+      longitude: -100,
+      latitude: 40,
+      zoom: 11,
+    });
+
+  const {user} = useContext(AuthContext)
+
+  console.log(activity)
+  const [name,setName] = useState(activity.name)
+  const [sport,setSport] = useState(activity.sport)
+  const [description,setDescription] = useState(activity.description)
+  const [duration,setDuration] = useState(activity.duration)
+  const [activityDate,setActivityDate] = useState(activity.activityDate)
+  const storedToken = localStorage.getItem('authToken')
+  const [sportList,setSportList] = useState([])
+  const navigate = useNavigate()
+
+  function getUserLocation() {
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(position => {
+      setViewState({longitude:position.coords.longitude, latitude: position.coords.latitude}) 
+      })
+    } else {
+      setViewState({longitude: 52.520008, latitude: 13.404954})
+    }
+  }
+
+  useEffect(() => {
+    getUserLocation()
+
+    axios.get(`${process.env.REACT_APP_API_URL}/api/sports`)
+    .then(response => setSportList(response.data))
+    .catch(err => console.log(err))
+  }, [])
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const payload = {
+      name,
+      description,
+      duration,
+      activityDate,
+      location: {long: viewState.longitude, lat: viewState.latitude},
+      sport
+    }
+    axios.post(
+      `${process.env.REACT_APP_API_URL}/api/activities`,
+      payload,
+      {headers: {Authorization: `Bearer ${storedToken}`}}
+      )
+      .then(response => {
+        const activityId = response.data._id
+        navigate(`/activities/${activityId}`)
+      })
+      .catch(err => console.log(err))
+  }
+
+  return (
+    <div className="activity-add-form">
+
+    <form onSubmit={handleSubmit}>
+      <label htmlFor="name">Name</label>
+      <input type="text" name="name" id="name" value={name} onChange={e => setName(e.target.value)} />
+
+      <label htmlFor="sport">Sport</label>
+      <select name="sport" id="sport" onChange={e => setSport(e.target.value)} defaultValue="-- select a sport --">
+        <option disabled> -- select a sport -- </option>
+        {sportList.map(sport => {
+          return (
+            <option key={sport._id} value={sport._id}>{sport.name}</option>
+          )
+        })}
+      </select>
+
+      <label htmlFor="description">Description</label>
+      <input type="text" name="description" id="description" value={description} onChange={e => setDescription(e.target.value)} />
+
+      <label htmlFor="duration">Duration</label>
+      <input type="number" name="duration" id="duration" value={duration} onChange={e => setDuration(e.target.value)}/>
+
+      <label htmlFor="date">Date and Hour</label>
+      <input type="datetime-local" name="date" id="date" value={activityDate} onChange={e=>setActivityDate(e.target.value)}/>
+
+      {/* <label htmlFor="location">Location</label>
+      <input type="text" name="location" id="location" value={location} onChange={e=>setLocation(e.target.value)}/> */}
+
+
+      <button type='submit'>Submit</button>
+    </form>
+    
+    <Map
+      {...viewState}
+      style={{ height: 400, width: 400 }}
+      onMove={(evt) => setViewState(evt.viewState)}
+      mapStyle="mapbox://styles/mapbox/streets-v9"
+
+    >
+      <Marker
+        longitude={viewState.longitude}
+        latitude={viewState.latitude}
+      ></Marker>
+
+    </Map>
+    </div>
+    
+  )
+  
+
+}

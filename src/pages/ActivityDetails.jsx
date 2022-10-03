@@ -28,6 +28,7 @@ export default function ActivityDetails(props) {
         // navigate('/login')
         console.log(err);
       });
+      // eslint-disable-next-line
   }, []);
 
   // define the options for the map, later call it conditionally on load
@@ -83,6 +84,11 @@ export default function ActivityDetails(props) {
       .catch((err) => console.log(err));
   }
 
+  function handleEdit(e) {
+    e.preventDefault();
+    navigate(`/activities/${activity._id}/edit`)
+  }
+
   //show loading while fetching the data
   if (activity === null) {
     return <span>Loading...</span>;
@@ -120,6 +126,10 @@ export default function ActivityDetails(props) {
       ) : (
         <button onClick={handleLeave}>Leave activity</button>
       )}
+
+      
+
+      {activity.createdBy._id === user._id && <button onClick={handleEdit}>Edit activity</button>}
 
 
       {/* conditionally render map to avoid errors */}
