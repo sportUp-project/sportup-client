@@ -49,7 +49,7 @@ export default function ActivitiesEditForm(props) {
       sport
     }
     axios.put(
-      `${process.env.REACT_APP_API_URL}/api/activities/${activity._id}/edit`,
+      `${process.env.REACT_APP_API_URL}/api/activities/${activity._id}`,
       payload,
       {headers: {Authorization: `Bearer ${storedToken}`}}
       )
