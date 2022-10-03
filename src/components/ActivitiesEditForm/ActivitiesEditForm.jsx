@@ -11,8 +11,8 @@ export default function ActivitiesEditForm(props) {
 
     // map states
     const [viewState, setViewState] = useState({
-      longitude: -100,
-      latitude: 40,
+      longitude: activity.location.long,
+      latitude: activity.location.lat,
       zoom: 11,
     });
 
@@ -24,22 +24,14 @@ export default function ActivitiesEditForm(props) {
   const [description,setDescription] = useState(activity.description)
   const [duration,setDuration] = useState(activity.duration)
   const [activityDate,setActivityDate] = useState(activity.activityDate)
+  const [members, setMembers] = useState(activity.members)
   const storedToken = localStorage.getItem('authToken')
   const [sportList,setSportList] = useState([])
   const navigate = useNavigate()
 
-  function getUserLocation() {
-    if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition(position => {
-      setViewState({longitude:position.coords.longitude, latitude: position.coords.latitude}) 
-      })
-    } else {
-      setViewState({longitude: 52.520008, latitude: 13.404954})
-    }
-  }
+  
 
   useEffect(() => {
-    getUserLocation()
 
     axios.get(`${process.env.REACT_APP_API_URL}/api/sports`)
     .then(response => setSportList(response.data))
@@ -56,16 +48,24 @@ export default function ActivitiesEditForm(props) {
       location: {long: viewState.longitude, lat: viewState.latitude},
       sport
     }
-    axios.post(
-      `${process.env.REACT_APP_API_URL}/api/activities`,
+    axios.put(
+      `${process.env.REACT_APP_API_URL}/api/activities/${activity._id}/edit`,
       payload,
       {headers: {Authorization: `Bearer ${storedToken}`}}
       )
       .then(response => {
-        const activityId = response.data._id
-        navigate(`/activities/${activityId}`)
+        navigate(`/activities/${activity._id}`)
       })
       .catch(err => console.log(err))
+  }
+
+  function handleMemberRemove(e) {
+    e.preventDefault();
+    console.log('hello from handle remove')
+    console.log(e.target.getAttribute('id'))
+
+    setMembers(members.filter(member => member._id !== e.target.getAttribute('id')))
+
   }
 
   return (
@@ -96,7 +96,12 @@ export default function ActivitiesEditForm(props) {
 
       {/* <label htmlFor="location">Location</label>
       <input type="text" name="location" id="location" value={location} onChange={e=>setLocation(e.target.value)}/> */}
-
+      <label htmlFor="members">Joined by:</label>
+      {members.map(member => {
+        return (
+          <span id={member._id} key={member._id}>{member.name}</span>
+        )
+      })}
 
       <button type='submit'>Submit</button>
     </form>
