@@ -5,15 +5,17 @@ import axios from "axios";
 
 
 export default function ProfileEditForm(props) {
-
-
+  
   const { userInfo } = props;
+  const {sports} =  props
+
   const [user, setUser] = useState(userInfo);
 
   const [name, setName] = useState(user.name);
   const [image, setImage] = useState(user.image);
   const [description, setDescription] = useState(user.description);
   const [password, setPassword] = useState("");
+  const [userSports,setUserSports] = useState(user.sports)
   const storedToken = localStorage.getItem("authToken");
   const navigate = useNavigate();
 
@@ -50,11 +52,29 @@ export default function ProfileEditForm(props) {
       .catch((err) => console.log(err));
   }
 
+  function handleSportClick(e) {
+    e.preventDefault()
+    const targetId = e.target.id
+    console.log(`clicked ${targetId}`)
+    
+    if (userSports.includes(targetId)) {
+      const userSportsCopy = [...userSports]
+      setUserSports(userSportsCopy.filter(sport => sport !== targetId))
+    } else{
+      const userSportsCopy = [...userSports]
+      console.log(userSportsCopy)
+      setUserSports([...userSportsCopy, targetId])
+    }
+
+  }
+
   if (!user) {
     return <p>loading</p>;
   }
 
   return (
+    <div className="form-holder">
+
     <form onSubmit={handleSubmit}>
       <label htmlFor="name">Name</label>
       <input
@@ -89,5 +109,14 @@ export default function ProfileEditForm(props) {
 
       <button type="submit">Save changes</button>
     </form>
+
+          <div className="sport-holder">
+      {sports.map(sport => {
+        return (
+            <span key={sport._id} id={sport._id} onClick={handleSportClick} >{sport.name}</span>
+        )
+      })}
+          </div>
+    </div>
   );
 }
