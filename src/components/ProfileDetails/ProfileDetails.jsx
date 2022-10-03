@@ -3,6 +3,7 @@ import { useState } from "react";
 import "./ProfileDetails.css";
 import FollowBtn from "../FollowBtn/FollowBtn";
 import FollowersList from "../FollowersList/FollowersList";
+import { Link } from "react-router-dom";
 
 
 
@@ -28,7 +29,7 @@ export default function ProfileDetails(props) {
           <>
           <div onMouseEnter={toggleShowList}
               onMouseLeave={toggleShowList}>
-                <p>Folowers: {userInfo.followers.length}</p> 
+                <p>Followed by: {userInfo.followers.length}</p> 
           </div>
           { showList && <FollowersList followers={userInfo.followers} /> }
         </>      
@@ -37,7 +38,7 @@ export default function ProfileDetails(props) {
         <>
           <div onMouseEnter={toggleShowListFollowing}
               onMouseLeave={toggleShowListFollowing}>
-                <p>Follows: {userInfo.follows.length}</p> 
+                <Link to={`/profile/${userInfo._id}/following`}> Follows: {userInfo.follows.length}</Link> 
           </div>
           { showListFollowing && <FollowersList followers={userInfo.follows} /> }
         </> 
@@ -59,12 +60,12 @@ export default function ProfileDetails(props) {
       </h4>
       <h4>Joined Activites:
       {userInfo.joinedActivities.map((activity)=> {
-        return <p key={activity._id}>{activity.name}</p>
+        return <Link to={`/activities/${activity._id}`} key={activity._id}>{activity.name}</Link>
       })}
       </h4>
       <h4>User created activities: 
       {userInfo.userActivities.map((activity)=> {
-        return <p key={activity._id}>{activity.name}</p>
+        return <Link to={`/activities/${activity._id}`} key={activity._id}>{activity.name}</Link>
       })}
       </h4>
 
