@@ -13,7 +13,7 @@ export default function ProfileDetails(props) {
       <h4>Joined Activites:{userInfo.joinedActivities.length}</h4>
       {userInfo.joinedActivities.map(act => {
         return (
-          <h4 key={act._id}>{act.name}</h4>
+          <Link to={`/activities/${act._id}`}>{act.name}</Link>
         )
       })} 
       <h4>Created Activities:{userInfo.userActivities}</h4>
@@ -22,7 +22,6 @@ export default function ProfileDetails(props) {
           <p key={act._id}>{act.name}</p>
         )
       })}
-      {/* <h4>User created activities: {userInfo.userActivities[0]}</h4> */}
     </div>
   );
 }

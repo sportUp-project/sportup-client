@@ -91,9 +91,9 @@ export default function ActivityDetails(props) {
   console.log(activity);
   console.log(user)
 
-  console.log(activity.members.filter(member => member._id === user._id).length === 0)
-  console.log(activity.createdBy._id !== user._id)
-  console.log(activity.members.filter(member => member._id === user._id))
+  console.log('filter if member has joined', activity.members.filter(member => member._id === user._id).length === 1)
+  console.log('filter if user is not creator', activity.createdBy._id !== user._id)
+
   return (
     <div className="activity-details">
       <h4>{activity.name}</h4>
@@ -114,7 +114,7 @@ export default function ActivityDetails(props) {
         return <p key={member._id}>{member.name}</p>;
       })}
 
-      {activity.createdBy._id !== user._id && activity.members.filter(member => member._id !== user._id).length === 0
+      {activity.createdBy._id !== user._id && activity.members.filter(member => member._id === user._id).length === 0
       ? (
         <button onClick={handleJoin}>Join this activity</button>
       ) : (
