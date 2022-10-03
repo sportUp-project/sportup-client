@@ -24,7 +24,7 @@ export default function ProfilePage(props) {
         setUserInfo(user);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [pageUserId]);
 
   // console.log({userInfo})
   // console.log({user})

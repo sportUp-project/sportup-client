@@ -26,7 +26,8 @@ function FollowBtn() {
     const unfollowfollowUser = () => {   
      
         axios.put (
-            `${process.env.REACT_APP_API_URL}/profile/${id}/unfollow`, 
+            `${process.env.REACT_APP_API_URL}/profile/${id}/unfollow`,
+            {}, 
             {headers: {Authorization: `Bearer ${storedToken}`}})
             .then(()=> {
                 setFollow(false)
