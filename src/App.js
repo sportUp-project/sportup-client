@@ -10,6 +10,8 @@ import ActivityDetails from './pages/ActivityDetails'
 import ActivitiesMainPage  from './pages/ActivitiesMainPage';
 import SportMainPage from './pages/SportMainPage';
 import FollowingOverveiw from './pages/FollowingOverveiw';
+import ActivitiesEdit from './pages/ActivitiesEdit'
+
 import './App.css';
 
 function App() {
@@ -25,6 +27,7 @@ function App() {
         <Route path={'/activities/'} element={<ActivitiesMainPage />} />
         <Route path={'/activities/add'} element={<ActivitiesAdd />} />
         <Route path={'/activities/:id'} element={<ActivityDetails />} />
+        <Route path={'/activities/:id/edit'} element={<ActivitiesEdit/>} />
         <Route path={'/activities/sport/:id'} element={<SportMainPage />} />
         <Route path={'/profile/:id/following'} element={<FollowingOverveiw />} />
       </Routes>

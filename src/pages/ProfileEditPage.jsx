@@ -8,6 +8,7 @@ export default function ProfileEditPage(props) {
   const [userInfo, setUserInfo] = useState(null);
   const { user } = useContext(AuthContext);
   const { id } = useParams();
+  const [sports,setSports] = useState([])
 
   const storedToken = localStorage.getItem("authToken");
 
@@ -21,11 +22,21 @@ export default function ProfileEditPage(props) {
       })
       .catch((err) => console.log(err));
   }, []);
+
+  useEffect(() => {
+    axios
+    .get(`${process.env.REACT_APP_API_URL}/api/sports`)
+    .then(response => setSports(response.data))
+    .catch(err => console.log(err))
+  }, [])
+  
+
+  // show loading until page is ready
   if (!userInfo) {
     return <span>loading</span>;
   }
 
   return (
-    <ProfileEditForm userInfo={userInfo} />
+    <ProfileEditForm userInfo={userInfo} sports={sports}/>
   );
 }

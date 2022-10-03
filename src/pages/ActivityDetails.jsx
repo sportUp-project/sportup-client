@@ -28,7 +28,8 @@ export default function ActivityDetails(props) {
         // navigate('/login')
         console.log(err);
       });
-  }, []);
+      // eslint-disable-next-line
+  }, [id]);
 
   // define the options for the map, later call it conditionally on load
   function renderMap() {
@@ -70,6 +71,8 @@ export default function ActivityDetails(props) {
       })
       .catch((err) => console.log(err));
   }
+
+
   function handleLeave(e) {
     e.preventDefault();
     axios
@@ -83,16 +86,44 @@ export default function ActivityDetails(props) {
       .catch((err) => console.log(err));
   }
 
+  function handleEdit(e) {
+    e.preventDefault();
+    navigate(`/activities/${activity._id}/edit`)
+  }
+
+  function handleDelete(e) {
+    e.preventDefault();
+    axios.delete(
+      `${process.env.REACT_APP_API_URL}/api/activities/${activity._id}`,
+      { headers: { Authorization: `Bearer ${storedToken}` }}
+    )
+    .then(response => {
+      navigate('/activities')
+    })
+    .catch(err=>console.log(err))
+  }
+
   //show loading while fetching the data
   if (activity === null) {
     return <span>Loading...</span>;
   }
-
+  
   console.log(activity);
-  console.log(user)
-
+  // console.log(user)
+  
   console.log('filter if member has joined', activity.members.filter(member => member._id === user._id).length === 1)
   console.log('filter if user is not creator', activity.createdBy._id !== user._id)
+  
+  function renderJoinButton() {
+    return (
+      activity.createdBy._id !== user._id && activity.members.filter(member => member._id === user._id).length === 0
+        ? (
+          <button onClick={handleJoin}>Join this activity</button>
+        ) : (
+          <button onClick={handleLeave}>Leave activity</button>
+        )
+    )
+  }
 
   return (
     <div className="activity-details">
@@ -114,12 +145,21 @@ export default function ActivityDetails(props) {
         return <p key={member._id}>{member.name}</p>;
       })}
 
-      {activity.createdBy._id !== user._id && activity.members.filter(member => member._id === user._id).length === 0
+      {/* {activity.createdBy._id !== user._id && activity.members.filter(member => member._id === user._id).length === 0
       ? (
         <button onClick={handleJoin}>Join this activity</button>
       ) : (
         <button onClick={handleLeave}>Leave activity</button>
-      )}
+      )} */}
+
+      <div className="button-holder">
+
+        {activity.createdBy._id !== user._id && renderJoinButton()}
+
+        {activity.createdBy._id === user._id && <button onClick={handleEdit}>Edit activity</button>}
+        
+        {activity.createdBy._id === user._id && <button onClick={handleDelete} >Delete activity</button>}
+      </div>
 
 
       {/* conditionally render map to avoid errors */}
