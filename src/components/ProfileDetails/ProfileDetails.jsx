@@ -1,5 +1,4 @@
 import "./ProfileDetails.css";
-import {Link} from 'react-router-dom'
 import FollowBtn from "../FollowBtn/FollowBtn";
 
 
