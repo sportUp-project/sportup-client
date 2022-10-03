@@ -15,13 +15,13 @@ export default function ProfileEditForm(props) {
   const [image, setImage] = useState(user.image);
   const [description, setDescription] = useState(user.description);
   const [password, setPassword] = useState("");
-  const [userSports,setUserSports] = useState(user.sports)
+  const [userSports,setUserSports] = useState(user.sports.map(sport => sport._id))
   const storedToken = localStorage.getItem("authToken");
   const navigate = useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
-    const payload = { name, image, description };
+    const payload = { name, image, description, sports: userSports };
     axios
       .put(
         `${process.env.REACT_APP_API_URL}/profile/${userInfo._id}`,
