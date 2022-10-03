@@ -109,11 +109,23 @@ export default function ProfileEditForm(props) {
 
       <button type="submit">Save changes</button>
     </form>
+            {/* <span style={{color:"blue"}} key={sport._id} id={sport._id} onClick={handleSportClick} >{sport.name}</span> */}
 
           <div className="sport-holder">
       {sports.map(sport => {
+        if (userSports.includes(sport._id)) {
+          return (
+            <div className="single-sport">
+              <img id={sport._id} key={sport._id} onClick={handleSportClick} src={sport.iconUrl} alt={sport._name} className={'clicked'} />
+              <span>{sport.name}</span>
+            </div>
+          )
+        }
         return (
-            <span key={sport._id} id={sport._id} onClick={handleSportClick} >{sport.name}</span>
+          <div className="single-sport">
+            <img id={sport._id} key={sport._id} onClick={handleSportClick} src={sport.iconUrl} alt={sport._name} />
+            <span>{sport.name}</span>
+          </div>
         )
       })}
           </div>
