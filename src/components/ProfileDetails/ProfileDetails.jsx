@@ -43,8 +43,8 @@ export default function ProfileDetails(props) {
         </> 
 
       }
-      
-       <FollowBtn userInfo={userInfo} user={user} setUserInfo={setUserInfo}/>
+      {userInfo._id !== user._id && <FollowBtn userInfo={userInfo} user={user} setUserInfo={setUserInfo}/>}
+       
        
 
       <h4>Description: {userInfo.description}</h4>
