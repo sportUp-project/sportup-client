@@ -7,7 +7,7 @@ import FollowersList from "../FollowersList/FollowersList";
 
 
 export default function ProfileDetails(props) {
-  const { userInfo } = props;
+  const { userInfo, user, setUserInfo } = props;
   const [ showList, setShowList ] = useState(false)
   const toggleShowList = () => {
     setShowList(!showList);
@@ -44,7 +44,7 @@ export default function ProfileDetails(props) {
 
       }
       
-       <FollowBtn />
+       <FollowBtn userInfo={userInfo} user={user} setUserInfo={setUserInfo}/>
        
 
       <h4>Description: {userInfo.description}</h4>
