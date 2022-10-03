@@ -1,7 +1,18 @@
 .user-card img {
-    width: 100px
+    width: 100%;
 }
 
 .user-card {
+    border-radius: 10000px;
+    border: 1px solid black;
     width: 100px;
+    height: 100px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.user-card span {
+    position: relative;
 }

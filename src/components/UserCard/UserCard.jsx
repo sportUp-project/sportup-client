@@ -8,7 +8,7 @@ export default function UserCard(props) {
     <div className="user-card">
       <img src={user.image} alt={user.name} />
       <span>{user.name}</span>
-      
+
     </div>
   )
 }

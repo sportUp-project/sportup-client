@@ -3,6 +3,7 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Map, Marker } from "react-map-gl";
 import moment, { duration } from "moment";
+import UserCard from "../components/UserCard/UserCard";
 import { AuthContext } from "../context/auth.context";
 
 export default function ActivityDetails(props) {
@@ -55,7 +56,7 @@ export default function ActivityDetails(props) {
 
   // create a formatted date with momentjs
   function renderDate() {
-    return moment(activity.activityDate).format("MMMM do YYYY, hh:mm");
+    return moment(activity.activityDate).format("MMM do YYYY, hh:mm");
   }
   const dateFormatted = activity ? renderDate() : null;
 
@@ -147,7 +148,7 @@ export default function ActivityDetails(props) {
       <p>Members joining:</p>
 
       {activity.members.map((member) => {
-        return <p key={member._id}>{member.name}</p>;
+        return <UserCard user={member}/>;
       })}
 
       {/* {activity.createdBy._id !== user._id && activity.members.filter(member => member._id === user._id).length === 0
