@@ -11,6 +11,7 @@ export default function ProfileDetails(props) {
       <h4>{userInfo.name}</h4>
       <img src={userInfo.image} alt="profile" />
       <h4>Description: {userInfo.description}</h4>
+
       <h4>Sports: 
       {userInfo.sports.map((sport)=> {
         return <div key={sport._id}>

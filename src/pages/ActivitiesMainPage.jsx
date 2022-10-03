@@ -28,7 +28,7 @@ export default function ActivitiesMainPage(props) {
   if (activities.length === 0  || sports.length === 0) {
     return <span>Loading...</span>
   }
-
+  console.log(activities)
   return (
     <div className="activities-main">
       <h3>Choose from our most popular sports:</h3>
