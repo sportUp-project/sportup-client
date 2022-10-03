@@ -115,15 +115,15 @@ export default function ProfileEditForm(props) {
       {sports.map(sport => {
         if (userSports.includes(sport._id)) {
           return (
-            <div className="single-sport">
-              <img id={sport._id} key={sport._id} onClick={handleSportClick} src={sport.iconUrl} alt={sport._name} className={'clicked'} />
+            <div key={sport._id} className="single-sport">
+              <img id={sport._id}  onClick={handleSportClick} src={sport.iconUrl} alt={sport._name} className={'clicked'} />
               <span>{sport.name}</span>
             </div>
           )
         }
         return (
-          <div className="single-sport">
-            <img id={sport._id} key={sport._id} onClick={handleSportClick} src={sport.iconUrl} alt={sport._name} />
+          <div key={sport._id} className="single-sport">
+            <img id={sport._id} onClick={handleSportClick} src={sport.iconUrl} alt={sport._name} />
             <span>{sport.name}</span>
           </div>
         )
