@@ -25,3 +25,32 @@ a {
   transition: background-color 0.2s, box-shadow 0.2s;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 10px 0px;
 }
+
+
+
+
+/* Added by Joanna  */
+::-webkit-scrollbar {
+
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.034);
+  border-radius: 2px;
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: #0e0e0e1f; 
+
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0e0e0e5e; 
+}
+
+
+.h3 {
+  padding: 0;
+}
