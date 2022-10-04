@@ -73,8 +73,9 @@ export default function ProfileEditForm(props) {
   }
 
   return (
-    <div className="form-holder">
+    <div className="edit-form-holder">
       <form onSubmit={handleSubmit}>
+      <img className="edit-img" src={user.image} alt="" />
         <label htmlFor="name">Name</label>
         <input
           type="text"
@@ -93,20 +94,22 @@ export default function ProfileEditForm(props) {
           onChange={(e) => setDescription(e.target.value)}
         />
 
-        <label htmlFor="image">Image</label>
+        <label className="upload-label" htmlFor="image">Upload an image
         <input
+         style={{display:"none"}}
           type="file"
           name="image"
           id="image"
           onChange={(e) => handleFileUpload(e)}
         />
+        </label>
 
         {/* <label htmlFor="password">Password</label>
       <input type="password" name="password" id="password" value={password} onChange={e => setPassword(e.target.value)}/> */}
 
         <button type="submit">Save changes</button>
       </form>
-      <div className="sport-holder">
+      <div className="edit-sport-holder">
         {sports.map((sport) => {
           if (userSports.includes(sport._id)) {
             {
