@@ -1,0 +1,35 @@
+.activity-add-form {
+    margin-top:30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.activity-add-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:10px;
+}
+
+.activity-add-form input {
+    all: unset;
+    height: 1.5em;
+    border: 1px solid gray;
+    border-radius: 5px;
+    width: 200px;
+}
+.activity-add-form select {
+    all: unset;
+    height: 1.5em;
+    border: 1px solid gray;
+    border-radius: 5px;
+    width: 200px;
+}
+
+@media only screen and (max-width:800) {
+    .activity-add-form {
+       background-color: blue;
+    }
+}

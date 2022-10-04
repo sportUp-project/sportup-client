@@ -40,7 +40,7 @@ export default function Homepage() {
     setSearch(e.target.value);
   }
 
-  if (searchedData === null){
+  if (searchedData === null || sports === null){
     return <span>Loading</span>;
   }
  

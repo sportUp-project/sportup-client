@@ -28,7 +28,7 @@ export default function ProfileDetails(props) {
   return (
     <div className="profile-holder">
       <div className="profile-info">
-        <h4>{userInfo.name}</h4>
+        <h2>{userInfo.name}</h2>
         <img className="profile-image" src={userInfo.image} alt="profile" />
         {userInfo.followers.length > 0 && (
           <>
@@ -68,25 +68,19 @@ export default function ProfileDetails(props) {
             return <SportCard sport={sport} />;
           })}
         </div>
-        {loggedUser._id === userInfo._id && <Link to={`/profile/${user._id}/edit`}>Edit profile </Link>}
+        {loggedUser._id === userInfo._id && <Link className="button" to={`/profile/${user._id}/edit`}>Edit profile </Link>}
       </div>
       <div className="profile-all-activities">
         <h4>Joined Activites:</h4>
-        {/* <div className="profile-joined-activites"> */}
-          {/* {userInfo.joinedActivities.map((activity) => {
-            return <ActivityCard key={activity._id} activity={activity} />;
-          })} */}
-          <ActivitiesList activities={userInfo.joinedActivities} />
-        {/* </div> */}
-        <h4>User created activities:</h4>
-        {loggedUser._id === userInfo._id && <Link to={`/activities/add`}>Add an activity</Link>}
 
-        {/* <div className="profile-created-activities">
-          {userInfo.userActivities.map((activity) => {
-            return <ActivityCard key={activity._id} activity={activity} />;
-          })} */}
+          <ActivitiesList activities={userInfo.joinedActivities} />
+
+        <h4>User created activities:</h4>
+        {loggedUser._id === userInfo._id && <Link className="button" to={`/activities/add`}>Add an activity</Link>}
+
+
           <ActivitiesList activities={userInfo.userActivities} />
-        {/* </div> */}
+
       </div>
       
 

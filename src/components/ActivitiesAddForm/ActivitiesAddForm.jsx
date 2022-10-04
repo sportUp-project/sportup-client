@@ -40,7 +40,7 @@ export default function ActivitiesAddForm(props) {
     getUserLocation()
 
     axios.get(`${process.env.REACT_APP_API_URL}/api/sports`)
-    .then(response => setSportList(response.data))
+    .then(response => setSportList(response.data.sort((a,b) => a.name.localeCompare(b.name))))
     .catch(err => console.log(err))
   }, [])
   
@@ -98,12 +98,12 @@ export default function ActivitiesAddForm(props) {
       <input type="text" name="location" id="location" value={location} onChange={e=>setLocation(e.target.value)}/> */}
 
 
-      <button type='submit'>Submit</button>
+      <button className='button' type='submit'>Submit</button>
     </form>
     
     <Map
       {...viewState}
-      style={{ height: 400, width: 400 }}
+      style={{ height: 350, width: 350 }}
       onMove={(evt) => setViewState(evt.viewState)}
       mapStyle="mapbox://styles/mapbox/streets-v9"
 
