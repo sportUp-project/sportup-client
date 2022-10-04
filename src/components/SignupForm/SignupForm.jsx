@@ -14,7 +14,7 @@ export default function SignupForm(props) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    const requestToServer = {name,email, password, }
+    const requestToServer = {name,email, password,  }
 
     axios.post(process.env.REACT_APP_API_URL + '/auth/signup', requestToServer)
     .then(response => {

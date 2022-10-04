@@ -19,7 +19,7 @@ export default function SportsDropdown(props) {
         <option disabled> -- select a sport -- </option>
         {sports.map(sport => {
           return (
-            <option key={sport._id} value={`sport/${sport._id}`}>{sport.name} : ({sports.activities?.length})</option>
+            <option key={sport._id} value={`sport/${sport._id}`}>{sport.name} : ({sport.activities?.length})</option>
           )
         })}
       </select>

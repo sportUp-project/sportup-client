@@ -2,7 +2,8 @@ import { useState, useEffect, useContext } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Map, Marker } from "react-map-gl";
-import moment from "moment";
+import moment, { duration } from "moment";
+import UserCard from "../components/UserCard/UserCard";
 import { AuthContext } from "../context/auth.context";
 
 export default function ActivityDetails(props) {
@@ -55,9 +56,14 @@ export default function ActivityDetails(props) {
 
   // create a formatted date with momentjs
   function renderDate() {
-    return moment(activity.activityDate).format("MMMM do YYYY, hh:mm");
+    return moment(activity.activityDate).format("MMM do YYYY, hh:mm");
   }
   const dateFormatted = activity ? renderDate() : null;
+
+  function renderDuration() {
+    return moment.duration(activity.duration, 'hours').humanize()
+  }
+  const durationFormatted = activity? renderDuration() : null;
 
   function handleJoin(e) {
     e.preventDefault();
@@ -138,11 +144,11 @@ export default function ActivityDetails(props) {
       </p>
       <p>{activity.description}</p>
       <p>{dateFormatted}</p>
-      <p>Duration: {activity.duration} hours</p>
+      <p>Duration: {durationFormatted}</p>
       <p>Members joining:</p>
 
       {activity.members.map((member) => {
-        return <p key={member._id}>{member.name}</p>;
+        return <UserCard user={member}/>;
       })}
 
       {/* {activity.createdBy._id !== user._id && activity.members.filter(member => member._id === user._id).length === 0
