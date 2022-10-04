@@ -2,7 +2,7 @@ import './SportCard.css'
 import { useNavigate } from 'react-router-dom'
 
 export default function SportCard(props) {
-  const {sport} = props
+  const { sport } = props
   const navigate = useNavigate()
   function handleRouting(e) {
     navigate(`sport/${sport._id}`)
