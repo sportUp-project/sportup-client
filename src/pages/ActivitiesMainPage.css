@@ -1,6 +1,6 @@
 
 .choose-sport {
-    height: 70vh;
+    height: 60vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11,38 +11,29 @@
     background-size: cover;
     color: white;  
     box-shadow: rgba(0, 0, 0, 0.411) 0px 10px 20px;
-    margin-bottom: 5%;
-
-
+    margin-bottom: 50px;
 }
 .choose-sport .image-holder {
-    background-color: rgba(230, 230, 230, 0.514);
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: rgba(230, 230, 230, 0.555);
+    box-shadow: rgba(0, 0, 0, 0.452) 0px 5px 15px;
     filter: invert(1);
+    scale: 1.1
 }
 
 .choose-sport .image-holder:hover {
-    background-color: rgb(36, 36, 36);
+    transform: scale(1.15);
+    background-color: rgba(75, 75, 75, 0.788);
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     filter: invert(1);
 }
 
-.choose-sport .sport-card{
-    scale: 1.2
-}
 
-.activities-main h3{
-    padding-bottom: 20px;
-    font-weight: 600;
-    font-size: 1.6em;
+
+.choose-sport h3{
+    padding: 20px 10px;
 } 
 
-.activities-main form {
-    background-color: rgba(255, 255, 255, 0.534);;  
-    width: 40vw;
-    color: black;
-    flex-direction: row;
-    align-items:center;
-    justify-content: center;
-}
-
+.activities-main h3{
+    font-weight: 600;
+    font-size: 1.4em;
+} 
