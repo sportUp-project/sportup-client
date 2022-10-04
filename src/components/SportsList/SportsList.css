@@ -1,4 +1,9 @@
 .sports-list {
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
+    /* display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(75px, 1fr)); */
+   display: flex;
+   justify-content: space-around;
+   width: 100%;    
 }
+
+

@@ -14,7 +14,7 @@ export default function SportsDropdown(props) {
 
   // later fix issue with already preselected sport not working
   return (
-    <form onSubmit={handleChange}>
+    <form className="dropdown" onSubmit={handleChange}>
       <select name='dropdown' id='dropdown' onChange={e => setChosenSport(e.target.value)} defaultValue="-- select a sport --">
         <option disabled> -- select a sport -- </option>
         {sports.map(sport => {

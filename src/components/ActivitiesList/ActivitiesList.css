@@ -1,7 +1,13 @@
 .activities-list {
-    display:grid;
+    /* display:grid;
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 30px;
-    margin: 5%;
+    gap: 30px; */
+    display: flex;
+    margin: 0 5%;
+    overflow-x: hidden;
+    overflow-x: scroll;
+    padding-bottom: 60px;
+    padding-top: 30px;
+    
 }
 
