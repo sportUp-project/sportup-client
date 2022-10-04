@@ -15,7 +15,7 @@ export default function ActivityCard(props) {
   const durationFormatted = activity? renderDuration() : null;
 
   function handleRouting(e) {
-    navigate(`${activity._id}`);
+    navigate(`/activities/${activity._id}`);
   }
   return (
     <div className="activity-card" onClick={handleRouting}>

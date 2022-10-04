@@ -5,6 +5,7 @@ import FollowBtn from "../FollowBtn/FollowBtn";
 import FollowersList from "../FollowersList/FollowersList";
 import { Link } from "react-router-dom";
 import SportCard from "../SportCard/SportCard";
+import ActivityCard from "../ActivityCard/ActivityCard";
 
 
 export default function ProfileDetails(props) {
@@ -64,16 +65,16 @@ export default function ProfileDetails(props) {
           )
         })}
       </div>
-      <h4>Joined Activites:
-      {userInfo.joinedActivities.map((activity)=> {
-        return <Link to={`/activities/${activity._id}`} key={activity._id}>{activity.name}</Link>
-      })}
-      </h4>
-      <h4>User created activities: 
+      <h4>Joined Activites:</h4>
+      <div className="profile-activities-holder">
+        {userInfo.joinedActivities.map((activity)=> {
+          return <ActivityCard  key={activity._id} activity={activity} />
+        })}
+      </div>
+      <h4>User created activities:</h4>
       {userInfo.userActivities.map((activity)=> {
         return <Link to={`/activities/${activity._id}`} key={activity._id}>{activity.name}</Link>
       })}
-      </h4>
 
     </div>
   );
