@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 
 export default function SportCard(props) {
   const {sport} = props
+  const {showDetails} = props
   const navigate = useNavigate()
   function handleRouting(e) {
     navigate(`sport/${sport._id}`)
@@ -15,7 +16,7 @@ export default function SportCard(props) {
 
       </div>
       <span>{sport.name}</span>
-      <span>{sport.activities.length}</span>
+      {showDetails && <span>{sport.activities.length}</span>}
     </div>
   )
 }

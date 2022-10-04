@@ -56,7 +56,7 @@ export default function ActivityDetails(props) {
 
   // create a formatted date with momentjs
   function renderDate() {
-    return moment(activity.activityDate).format("MMM do YYYY, hh:mm");
+    return moment(activity.activityDate).format("MMM do YYYY, hh:mm A");
   }
   const dateFormatted = activity ? renderDate() : null;
 

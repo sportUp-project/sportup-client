@@ -6,7 +6,7 @@ export default function ActivityCard(props) {
   const { activity } = props;
   const navigate = useNavigate();
   function renderDate() {
-    return moment(activity.activityDate).format("MMM do YYYY, hh:mm");
+    return moment(activity.activityDate).format("MMM do YYYY, hh:mm A");
   }
   const dateFormatted = activity ? renderDate() : null;
   function renderDuration() {

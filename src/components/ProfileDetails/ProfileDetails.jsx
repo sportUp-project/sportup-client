@@ -4,7 +4,7 @@ import "./ProfileDetails.css";
 import FollowBtn from "../FollowBtn/FollowBtn";
 import FollowersList from "../FollowersList/FollowersList";
 import { Link } from "react-router-dom";
-
+import SportCard from "../SportCard/SportCard";
 
 
 export default function ProfileDetails(props) {
@@ -24,7 +24,7 @@ export default function ProfileDetails(props) {
   return (
     <div className="profile-holder">
       <h4>{userInfo.name}</h4>
-      <img src={userInfo.image} alt="profile" />
+      <img className="profile-image" src={userInfo.image} alt="profile" />
       { userInfo.followers.length > 0 && 
           <>
           <div onMouseEnter={toggleShowList}
@@ -50,14 +50,20 @@ export default function ProfileDetails(props) {
 
       <h4>Description: {userInfo.description}</h4>
 
-      <h4>Sports: 
-      {userInfo.sports.map((sport)=> {
+      <h4>Sports: </h4>
+      {/* {userInfo.sports.map((sport)=> {
         return <div key={sport._id}>
           <img src={sport.iconUrl} alt={sport.name} />
           <p>{sport.name}</p>
         </div>
-      })}
-      </h4>
+      })} */}
+      <div className="sports-holder">
+        {userInfo.sports.map(sport => {
+          return (
+            <SportCard sport={sport} />
+          )
+        })}
+      </div>
       <h4>Joined Activites:
       {userInfo.joinedActivities.map((activity)=> {
         return <Link to={`/activities/${activity._id}`} key={activity._id}>{activity.name}</Link>
