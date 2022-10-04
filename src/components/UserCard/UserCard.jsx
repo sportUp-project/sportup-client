@@ -8,8 +8,6 @@ export default function UserCard(props) {
   return (
     <div className="user-card">
       <img src={user.image} alt={user.name} />
-      {useDetails &&  <span>{user.name}</span> }
-      
     </div>
   )
 }

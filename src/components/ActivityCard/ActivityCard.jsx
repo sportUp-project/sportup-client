@@ -17,7 +17,7 @@ export default function ActivityCard(props) {
   }
 
   function renderDate() {
-    return moment(activity.activityDate).format("MMM do YYYY, hh:mm A");
+    return moment(activity.activityDate).format("d.M.yyyy, hh:mm A");
   }
   const dateFormatted = activity ? renderDate() : null;
   function renderDuration() {

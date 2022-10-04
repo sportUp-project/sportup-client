@@ -94,7 +94,7 @@ export default function ProfileEditForm(props) {
           onChange={(e) => setDescription(e.target.value)}
         />
 
-        <label className="upload-label" htmlFor="image">Upload an image
+        <label className="button" htmlFor="image">Upload an image
         <input
          style={{display:"none"}}
           type="file"
@@ -107,7 +107,7 @@ export default function ProfileEditForm(props) {
         {/* <label htmlFor="password">Password</label>
       <input type="password" name="password" id="password" value={password} onChange={e => setPassword(e.target.value)}/> */}
 
-        <button type="submit">Save changes</button>
+        <button className="button" type="submit">Save changes</button>
       </form>
       <div className="edit-sport-holder">
         {sports.map((sport) => {

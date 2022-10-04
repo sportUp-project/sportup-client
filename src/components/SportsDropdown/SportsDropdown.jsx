@@ -23,7 +23,7 @@ export default function SportsDropdown(props) {
           )
         })}
       </select>
-      <button type='submit'>Go to sport</button>
+      <button className='button' type='submit'>Go to sport</button>
     </form> 
   )
 }
