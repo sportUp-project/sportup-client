@@ -44,14 +44,13 @@ export default function ActivitiesMainPage(props) {
     <div className="activities-main">
       <div className='choose-sport'>
         <h3>Choose from our most popular sports:</h3>
-        <SportsList sports={sportsShortList} />
+        <SportsList sports={sportsShortList} showDetails={false}/>
       
         <h3>Or select from all sports: </h3>
         <SportsDropdown sports={sports} />
       </div>
       
       <h3>Latest added activities</h3>
-      <hr/>
       <ActivitiesList activities={activities}  />
     </div>
   )

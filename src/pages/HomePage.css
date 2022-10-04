@@ -1,0 +1,88 @@
+@keyframes image {
+    0%   { background: url('../../public/assets/01.jpg');
+            background-position: center; 
+            background-repeat: no-repeat; 
+            background-size: cover; }
+    20%  { background: url('../../public/assets/02.jpg');
+            background-position: center; 
+            background-repeat: no-repeat; 
+            background-size: cover;  }
+    40%  { background: url('../../public/assets/03.jpg'); 
+            background-position: center; 
+            background-repeat: no-repeat; 
+            background-size: cover; }
+    60%  { background: url('../../public/assets/04.jpg');
+            background-position: center; 
+            background-repeat: no-repeat; 
+            background-size: cover;  }
+    80%  { background: url('../../public/assets/05.jpg'); 
+            background-position: center; 
+            background-repeat: no-repeat; 
+            background-size: cover; }
+    100% { background: url('../../public/assets/06.jpg');  
+            background-position: center; 
+            background-repeat: no-repeat; 
+            background-size: cover;}
+  }
+
+
+.center-main{
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    animation: image 30s infinite linear;    
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover;
+
+    color: white;  
+    box-shadow: rgba(0, 0, 0, 0.411) 0px 10px 20px;
+    margin-bottom: 50px;
+}
+
+.center-main .image-holder {
+    background-color: rgba(230, 230, 230, 0.555);
+    box-shadow: rgba(0, 0, 0, 0.452) 0px 5px 15px;
+    filter: invert(1);
+    scale: 1.1
+}
+
+.center-main .image-holder:hover {
+    transform: scale(1.15);
+    background-color: rgba(75, 75, 75, 0.788);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    filter: invert(1);
+}
+
+.center-main  h3, h2{
+    padding: 20px 20px;
+    font-size: 1.4em;    
+} 
+.center-main  h3 {
+    margin-bottom: 0;
+    margin-top: 50px;
+}
+
+.center-main input{
+    border: none;
+    border-radius: 0;
+    box-sizing: border-box;
+    height: 30px;
+    width: 60vw;
+    padding-left: 30px; 
+    background-color: rgba(255, 255, 255, 0.7);  
+    box-shadow: 5px 5px 5px rgb(41, 41, 41);
+    font-size: 16px;
+    margin: 0px 20px 30px 20px;
+}
+
+.center-main .btns {
+    width: 60vw;
+    max-width: 400px;
+    display: flex;
+    justify-content: space-between;
+
+}
