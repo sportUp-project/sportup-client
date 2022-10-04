@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { Link, Route, Routes, useNavigate, useParams } from "react-router-dom";
+import { Link, Navigate, Route, Routes, useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import ProfileDetails from '../components/ProfileDetails/ProfileDetails'
 import ProfileEditPage from "./ProfileEditPage";
@@ -8,6 +8,7 @@ import axios from "axios";
 export default function ProfilePage(props) {
   const { user } = useContext(AuthContext);
   const { id: pageUserId } = useParams();
+  const navigate = useNavigate()
 
   const [userInfo, setUserInfo] = useState(null);
 
@@ -23,7 +24,10 @@ export default function ProfilePage(props) {
         const user = response.data.user
         setUserInfo(user);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err)
+        navigate('/login')
+      });
   }, [pageUserId]);
 
   // console.log({userInfo})

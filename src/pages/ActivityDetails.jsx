@@ -26,7 +26,7 @@ export default function ActivityDetails(props) {
         setActivity(response.data);
       })
       .catch((err) => {
-        // navigate('/login')
+          navigate('/login')
         console.log(err);
       });
       // eslint-disable-next-line
@@ -56,7 +56,7 @@ export default function ActivityDetails(props) {
 
   // create a formatted date with momentjs
   function renderDate() {
-    return moment(activity.activityDate).format("MMM do YYYY, hh:mm");
+    return moment(activity.activityDate).format("MMM Do YYYY, hh:mm");
   }
   const dateFormatted = activity ? renderDate() : null;
 
