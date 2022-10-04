@@ -13,7 +13,7 @@ export default function Navbar(props) {
   }
   return (
     <div className="main-navbar">
-      <Link to={"/activities"}>SportUP</Link>
+      <Link to={"/"}>SportUP</Link>
       <Link to={"/activities"}>Activities</Link>
       {!isLoggedIn && 
         <>
@@ -22,6 +22,7 @@ export default function Navbar(props) {
       </>}
       {isLoggedIn &&
       <>
+        <Link to={`/activities/add`}>+</Link>
         <button onClick={handleLogOut}>Log out</button>
         <Link to={`/profile/${user._id}`} >Profile</Link>
       </>

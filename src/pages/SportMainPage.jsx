@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom'
+import React, { useState, useEffect, useContext } from 'react';
+import { Link, useParams } from 'react-router-dom'
 import axios from 'axios';
 import Search from '../components/Search/Search';
+import { AuthContext } from "../context/auth.context";
+
 
 
 function SportMainPage(props) {
+    const { user } = useContext(AuthContext);
     const {id} = useParams()
     const [sport,setSport] = useState(null)
 
@@ -26,7 +29,7 @@ function SportMainPage(props) {
         <h3>{sport.name}</h3>
 
         <Search searchedData={ sport.activities } />
-
+        {user && <Link to={`/activities/add`}>Add an activity</Link>}
       </div>
     )
   
