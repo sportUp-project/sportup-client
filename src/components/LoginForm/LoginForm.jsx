@@ -25,7 +25,7 @@ export default function LoginForm(props) {
         // console.log('JWT token', response.data.authToken );
         storeToken(response.data.authToken); // store in my localStorage the authToken
         authenticateUser(); // verify token is valid to get the user information from the server and store in state
-        navigate("/"); // <== ADD
+        navigate(`/profile/${response.data.userId}`); // <== ADD
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;
