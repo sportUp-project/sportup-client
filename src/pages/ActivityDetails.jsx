@@ -148,7 +148,7 @@ export default function ActivityDetails(props) {
       <p>Members joining:</p>
 
       {activity.members.map((member) => {
-        return <UserCard user={member}/>;
+        return <UserCard user={member} useDetails={true} />;
       })}
 
       {/* {activity.createdBy._id !== user._id && activity.members.filter(member => member._id === user._id).length === 0

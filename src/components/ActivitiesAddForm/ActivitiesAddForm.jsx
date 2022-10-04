@@ -73,7 +73,7 @@ export default function ActivitiesAddForm(props) {
 
     <form onSubmit={handleSubmit}>
       <label htmlFor="name">Name</label>
-      <input type="text" name="name" id="name" value={name} onChange={e => setName(e.target.value)} />
+      <input type="text" name="name" id="name" value={name} onChange={e => setName(e.target.value)}  maxlength="22"/>
 
       <label htmlFor="sport">Sport</label>
       <select name="sport" id="sport" onChange={e => setSport(e.target.value)} defaultValue="-- select a sport --">
