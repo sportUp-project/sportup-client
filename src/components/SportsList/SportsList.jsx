@@ -8,7 +8,7 @@ export default function SportsList(props) {
     <div className="sports-list">
       {sports.map(sport => {
         return (
-            <SportCard key={sport._id} sport={sport} />
+            <SportCard key={sport._id} sport={sport} showDetails={true} />
         )
       })}
     </div>

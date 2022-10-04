@@ -2,12 +2,11 @@ import "./ProfileEditForm.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
+import SportCard from "../SportCard/SportCard";
 
 export default function ProfileEditForm(props) {
-  
   const { userInfo } = props;
-  const {sports} =  props
+  const { sports } = props;
 
   const [user, setUser] = useState(userInfo);
 
@@ -15,7 +14,9 @@ export default function ProfileEditForm(props) {
   const [image, setImage] = useState(user.image);
   const [description, setDescription] = useState(user.description);
   const [password, setPassword] = useState("");
-  const [userSports,setUserSports] = useState(user.sports.map(sport => sport._id))
+  const [userSports, setUserSports] = useState(
+    user.sports.map((sport) => sport._id)
+  );
   const storedToken = localStorage.getItem("authToken");
   const navigate = useNavigate();
 
@@ -53,19 +54,18 @@ export default function ProfileEditForm(props) {
   }
 
   function handleSportClick(e) {
-    e.preventDefault()
-    const targetId = e.target.id
-    console.log(`clicked ${targetId}`)
-    
-    if (userSports.includes(targetId)) {
-      const userSportsCopy = [...userSports]
-      setUserSports(userSportsCopy.filter(sport => sport !== targetId))
-    } else{
-      const userSportsCopy = [...userSports]
-      console.log(userSportsCopy)
-      setUserSports([...userSportsCopy, targetId])
-    }
+    e.preventDefault();
+    const targetId = e.currentTarget.id;
+    console.log(`clicked ${targetId}`);
 
+    if (userSports.includes(targetId)) {
+      const userSportsCopy = [...userSports];
+      setUserSports(userSportsCopy.filter((sport) => sport !== targetId));
+    } else {
+      const userSportsCopy = [...userSports];
+      console.log(userSportsCopy);
+      setUserSports([...userSportsCopy, targetId]);
+    }
   }
 
   if (!user) {
@@ -73,62 +73,76 @@ export default function ProfileEditForm(props) {
   }
 
   return (
-    <div className="form-holder">
+    <div className="edit-form-holder">
+      <form onSubmit={handleSubmit}>
+      <img className="edit-img" src={user.image} alt="" />
+        <label htmlFor="name">Name</label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
 
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="name">Name</label>
-      <input
-        type="text"
-        name="name"
-        id="name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
+        <label htmlFor="description">Description</label>
+        <input
+          type="text"
+          name="description"
+          id="description"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        />
 
-      <label htmlFor="description">Description</label>
-      <input
-        type="text"
-        name="description"
-        id="description"
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-      />
+        <label className="upload-label" htmlFor="image">Upload an image
+        <input
+         style={{display:"none"}}
+          type="file"
+          name="image"
+          id="image"
+          onChange={(e) => handleFileUpload(e)}
+        />
+        </label>
 
-      <label htmlFor="image">Image</label>
-      <input
-        type="file"
-        name="image"
-        id="image"
-        onChange={(e) => handleFileUpload(e)}
-      />
-
-      {/* <label htmlFor="password">Password</label>
+        {/* <label htmlFor="password">Password</label>
       <input type="password" name="password" id="password" value={password} onChange={e => setPassword(e.target.value)}/> */}
 
-
-
-      <button type="submit">Save changes</button>
-    </form>
-            {/* <span style={{color:"blue"}} key={sport._id} id={sport._id} onClick={handleSportClick} >{sport.name}</span> */}
-
-          <div className="sport-holder">
-      {sports.map(sport => {
-        if (userSports.includes(sport._id)) {
+        <button type="submit">Save changes</button>
+      </form>
+      <div className="edit-sport-holder">
+        {sports.map((sport) => {
+          if (userSports.includes(sport._id)) {
+            {
+              /* <div key={sport._id} className="single-sport">
+                <img
+                  id={sport._id}
+                  onClick={handleSportClick}
+                  src={sport.iconUrl}
+                  alt={sport._name}
+                  className={"clicked"}
+                />
+                <span>{sport.name}</span>
+              </div> */
+            }
+            return (
+              <div id={sport._id} className="sport-card clicked" onClick={handleSportClick}>
+                <div className="image-holder">
+                  <img src={sport.iconUrl} alt={sport.name} />
+                </div>
+                <span>{sport.name}</span>
+              </div>
+            );
+          }
           return (
-            <div key={sport._id} className="single-sport">
-              <img id={sport._id}  onClick={handleSportClick} src={sport.iconUrl} alt={sport._name} className={'clicked'} />
-              <span>{sport.name}</span>
-            </div>
-          )
-        }
-        return (
-          <div key={sport._id} className="single-sport">
-            <img id={sport._id} onClick={handleSportClick} src={sport.iconUrl} alt={sport._name} />
-            <span>{sport.name}</span>
-          </div>
-        )
-      })}
-          </div>
+            <div id={sport._id} className="sport-card" onClick={handleSportClick}>
+                <div className="image-holder">
+                  <img src={sport.iconUrl} alt={sport.name} />
+                </div>
+                <span>{sport.name}</span>
+              </div>
+          );
+        })}
+      </div>
     </div>
   );
 }

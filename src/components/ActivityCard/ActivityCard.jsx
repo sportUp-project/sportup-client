@@ -17,7 +17,7 @@ export default function ActivityCard(props) {
   }
 
   function renderDate() {
-    return moment(activity.activityDate).format("MMM Do YYYY, hh:mm");
+    return moment(activity.activityDate).format("MMM do YYYY, hh:mm A");
   }
   const dateFormatted = activity ? renderDate() : null;
   function renderDuration() {
@@ -26,7 +26,7 @@ export default function ActivityCard(props) {
   const durationFormatted = activity? renderDuration() : null;
 
   function handleRouting(e) {
-    navigate(`${activity._id}`);
+    navigate(`/activities/${activity._id}`);
   }
   return (
     <div className="activity-card" onClick={handleRouting}>
