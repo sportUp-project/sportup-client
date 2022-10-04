@@ -40,7 +40,7 @@ export default function Homepage() {
     setSearch(e.target.value);
   }
 
-  if (searchedData === null || sports === null){
+  if (searchedData === null){
     return <span>Loading</span>;
   }
  
@@ -52,6 +52,9 @@ export default function Homepage() {
   return (value.sport.name.toLowerCase().includes(search.toLowerCase()) || value.name.toLowerCase().includes(search.toLowerCase()))
   })
    
+  if (sports === null) {
+    return <span>Loading</span>
+  }
   
 
   return (
@@ -68,7 +71,7 @@ export default function Homepage() {
         </div>
       } )}
 
-      <h2>Find your next aport activity and connect</h2>
+      <h2>Find your next sport activity and connect</h2>
       <input value={ search } type="text" placeholder="Search by sport or activity..." onChange={handleInput} />
         
         {!user ? 
@@ -78,8 +81,8 @@ export default function Homepage() {
         </div>
          :
         <div>
-          <Link to={`profile/${user._id}/`}>Profile</Link>
-          <Link to='/logut'>Log out</Link>
+          <Link className='button' to={`profile/${user._id}/`}>Profile</Link>
+          <Link className='button' to='/logut'>Log out</Link>
         </div>
         }
         { data &&

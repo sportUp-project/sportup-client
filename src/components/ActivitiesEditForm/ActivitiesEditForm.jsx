@@ -103,7 +103,7 @@ export default function ActivitiesEditForm(props) {
         )
       })}
 
-      <button type='submit'>Submit</button>
+      <button className='button' type='submit'>Submit</button>
     </form>
     
     <Map
