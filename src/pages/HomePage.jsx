@@ -21,7 +21,7 @@ export default function Homepage() {
         .then(response => {
           const sportsList = response.data
           sportsList.sort((a,b)=> {
-            return a.activities.length - b.activities.length
+            return b.activities.length - a.activities.length
           }).splice(4)
 
           return setSports(sportsList)

@@ -1,0 +1,21 @@
+.dropdown form  {
+    
+    flex-direction: row;
+    align-items:center;
+    justify-content: center;
+}
+
+
+.dropdown select {
+    border: none;
+    border-radius: 0;
+    box-sizing: border-box;
+    height: 40px;
+    width: 30vw;
+    padding-left: 30px;
+    margin-bottom: 20px; 
+    background-color: rgba(255, 255, 255, 0.7);  
+    box-shadow: 5px 5px 5px rgb(41, 41, 41);
+    font-size: 16px;
+    margin: 0 20px;
+}

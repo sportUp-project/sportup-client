@@ -1,0 +1,48 @@
+
+.choose-sport {
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../../public/assets/braden-collum-9HI8UJMSdZA-unsplash.jpg');
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover;
+    color: white;  
+    box-shadow: rgba(0, 0, 0, 0.411) 0px 10px 20px;
+    margin-bottom: 5%;
+
+
+}
+.choose-sport .image-holder {
+    background-color: rgba(230, 230, 230, 0.514);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    filter: invert(1);
+}
+
+.choose-sport .image-holder:hover {
+    background-color: rgb(36, 36, 36);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    filter: invert(1);
+}
+
+.choose-sport .sport-card{
+    scale: 1.2
+}
+
+.activities-main h3{
+    padding-bottom: 20px;
+    font-weight: 600;
+    font-size: 1.6em;
+} 
+
+.activities-main form {
+    background-color: rgba(255, 255, 255, 0.534);;  
+    width: 40vw;
+    color: black;
+    flex-direction: row;
+    align-items:center;
+    justify-content: center;
+}
+
