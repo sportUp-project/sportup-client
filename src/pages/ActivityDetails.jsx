@@ -26,7 +26,7 @@ export default function ActivityDetails(props) {
         setActivity(response.data);
       })
       .catch((err) => {
-        // navigate('/login')
+          navigate('/login')
         console.log(err);
       });
       // eslint-disable-next-line
@@ -148,7 +148,7 @@ export default function ActivityDetails(props) {
       <p>Members joining:</p>
 
       {activity.members.map((member) => {
-        return <UserCard user={member}/>;
+        return <UserCard user={member} useDetails={true} />;
       })}
 
       {/* {activity.createdBy._id !== user._id && activity.members.filter(member => member._id === user._id).length === 0

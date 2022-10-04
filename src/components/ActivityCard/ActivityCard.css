@@ -1,4 +1,87 @@
 .activity-card {
-    border: 1px solid black;
+    border: none;
     cursor: pointer;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    margin: 5px;
+    padding: 10px;
+    min-width: 230px;
+}
+
+.activity-card:hover {    
+    transform: scale(1.05);
+    box-shadow: rgba(100, 100, 111, 0.507) 0px 7px 29px 0px;
+}
+
+.activity-img {
+    width: 100%;
+    height: 35%;
+    object-fit: contain;
+
+}
+
+.activity-card h3, hr, p {
+    padding: 0px 20px;
+ 
+}
+
+.activity-card  h3 {
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.activity-card  hr{    
+    
+    border: .1px solid rgba(0, 0, 0, 0.096)
+}
+
+.decription {
+    color: rgba(0, 0, 0, 0.562);
+    font-size: .9em;    
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.bold-text {
+    font-weight:700
+}
+
+.full{
+    width: 100%;
+    text-align: left;
+    padding: 0px 20px;
+}
+
+.icon-container {
+    width: 100%;
+    display: flex;         
+}
+
+.activity-card .user-card {
+    height: 30px;
+    width: 30px;    
+    transition: 0.4s ease-out;
+    position: relative;
+} 
+
+.activity-card .user-card:not(:first-child) {
+    margin-left: -10px;
+}
+
+.activity-card .user-card:hover {
+  transform: translateY(-8px);
+  transition: 0.4s ease-out;
+}
+
+.activity-card .user-icon .user-card{
+    height: 40px;
+    width: 40px;
+   
+}
+.user-icon {   
+    position: relative;
+    top: 0px;
+    left: -5px;
+    height: 10px;
+    
 }
