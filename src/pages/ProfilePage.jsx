@@ -2,7 +2,6 @@ import { useState, useEffect, useContext } from "react";
 import { Link, Route, Routes, useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import ProfileDetails from '../components/ProfileDetails/ProfileDetails'
-import ProfileEditPage from "./ProfileEditPage";
 import axios from "axios";
 
 export default function ProfilePage(props) {
@@ -35,8 +34,7 @@ export default function ProfilePage(props) {
   return (
     <div className="profile-page">
       <ProfileDetails userInfo={userInfo} user={user} setUserInfo={setUserInfo}/>
-      {user._id === userInfo._id && <Link to={`/profile/${user._id}/edit`}>Edit profile </Link>}
-      {user._id === userInfo._id && <Link to={`/activities/add`}>Add an activity</Link>}
+
     </div>
 
   )
