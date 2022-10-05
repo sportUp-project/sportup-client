@@ -39,7 +39,7 @@ export default function Navbar(props) {
     <div className="main-navbar">
       <div>
         <Link  to={"/"}><p className='logo'><span>Sport</span>UP</p></Link>
-        <Link  to={"/activities"}>Activities</Link>
+        <Link className='activities-nav-link'  to={"/activities"}>Activities</Link>
         
         <div className="dropdown">
           <button className="dropbtn">Sports</button>
