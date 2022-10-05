@@ -1,0 +1,76 @@
+
+
+
+.sport-data {
+    height: 35vh;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover;
+    color: white;  
+    box-shadow: rgba(0, 0, 0, 0.411) 0px 10px 20px;
+    text-shadow: 1px 2px 3px rgba(0,0,0,0.4);
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content:left;
+    align-items:flex-end;
+
+}
+
+.data-container{
+    display: flex;
+    margin: 50px;
+}
+
+.data-container .image-holder {
+    background-color: rgba(230, 230, 230, 0.555);
+    box-shadow: rgba(0, 0, 0, 0.452) 0px 5px 15px;
+    filter: invert(1);
+    scale: 1.5;   
+    
+}
+
+.sport-details{
+    text-align: left;
+    margin-left: 40px;
+}
+
+.sport-details h2 {
+    padding: 0;
+}
+
+.sport-details a {
+    cursor: pointer;
+    box-sizing: border-box;
+    padding: 0.5em 2em;
+    border-radius: 5px;
+    text-align: center;
+    background-color: black;
+    color: white;
+    max-width: max-content;
+    line-height: 1em;
+}
+
+.sport-details a:hover {
+    cursor: pointer;
+    background-color: rgb(62, 123, 62);
+    transition: background-color 0.2s, box-shadow 0.2s;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 10px 0px;
+  }
+
+.sport-main input{
+    border: none;
+    border-radius: 0;
+    box-sizing: border-box;
+    height: 30px;
+    width: 60vw;
+    padding-left: 30px; 
+    background-color: rgba(0, 0, 0, 0.062);
+    box-shadow: 5px 4px 6px rgb(41, 41, 41);
+    font-size: 16px;
+    margin: 0px 20px 30px 20px;
+}
+
+.sport-main .activity-card {
+    max-width: 250px;
+}

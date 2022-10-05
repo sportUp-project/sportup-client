@@ -27,7 +27,9 @@ export default function SignupForm(props) {
   }
 
   return (
+    <div className="signup-form">
       <form onSubmit={handleSubmit}>
+        <h2>Sign up</h2>
         <label htmlFor="name">Name</label>
         <input
           type="text"
@@ -52,9 +54,11 @@ export default function SignupForm(props) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type='submit'>Sign up</button>
+        <button className="button btn-signup" type='submit'>Sign up</button>
+        <button className="button btn-login" type='submit'>Login</button>
       { errorMessage && <p className="error-message">{errorMessage}</p> }
       </form>
+      </div> 
 
   );
 }
