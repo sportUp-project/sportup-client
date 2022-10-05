@@ -43,6 +43,10 @@ export default function Homepage() {
   if (searchedData === null){
     return <span>Loading</span>;
   }
+  
+ if (sports === null) {
+   return <span>Loading</span>
+ }
  
   const data = searchedData.filter((value) =>
    {
@@ -51,10 +55,6 @@ export default function Homepage() {
   }
   return (value.sport.name.toLowerCase().includes(search.toLowerCase()) || value.name.toLowerCase().includes(search.toLowerCase()))
   })
-   
-  if (sports === null) {
-    return <span>Loading</span>
-  }
   
 
   return (
