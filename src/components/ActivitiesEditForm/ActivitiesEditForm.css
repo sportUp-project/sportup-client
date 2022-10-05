@@ -1,0 +1,7 @@
+.activity-add-form .members-holder>.user-card {
+    scale: 0.5;
+}
+.activity-add-form .members-holder {
+    display: flex;
+    flex-wrap: wrap;
+}

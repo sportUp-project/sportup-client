@@ -81,8 +81,8 @@ export default function Homepage() {
 
         {!user ? (
           <div className="btns">
-            <Link to="/signup">Sign Up</Link>
-            <Link to="/login">Login</Link>
+            <Link className="button" to="/signup">Sign Up</Link>
+            <Link className="button" to="/login">Login</Link>
           </div>
         ) : (
           <div className="btns">
