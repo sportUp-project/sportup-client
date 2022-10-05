@@ -1,5 +1,5 @@
 .following-user-holder .user-logo img {
-    width: 200px;
+    width: 50%;
 }
 .following-user-holder {
     display:flex;
