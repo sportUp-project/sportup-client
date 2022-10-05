@@ -16,7 +16,7 @@ function SportMainPage(props) {
         axios.get(`${process.env.REACT_APP_API_URL}/api/sports/${id}`)
             .then(response => setSport(response.data))
             .catch(err => console.log(err))
-    }, [sport])
+    }, [id])
 
   
     if (sport === null) {
@@ -31,7 +31,7 @@ function SportMainPage(props) {
             <div className="sport-details">
               <h2>{sport.name}</h2>
               <h3>Total activities: {sport.activities.length}</h3>
-              {user && <Link to={`/activities/add`}>Add an activity</Link>}
+              {user && <Link to={`/activities/add`}>Add</Link>}
             </div>
           </div>
           

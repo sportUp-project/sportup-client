@@ -115,5 +115,13 @@
   .dropdown:hover .dropdown-content {
     display: block;
   }
+
+  @media screen and (max-width:700px) {
+    .activities-nav-link,
+    .dropdown,
+    .dropdown .dropbtn {
+      display: none;
+    }
+  }
   
   
