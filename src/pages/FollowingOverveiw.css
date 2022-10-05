@@ -21,9 +21,7 @@
     grid-template-rows: 200px 200px;
 }
 
-
-
-.activities-of-following .activity-card {
-    width: 100px;
-    height: 100px;
+.created-by-following .activities-list {
+   scale: 0.5;
 }
+

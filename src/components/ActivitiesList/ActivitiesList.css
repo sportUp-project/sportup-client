@@ -11,3 +11,22 @@
     
 }
 
+::-webkit-scrollbar {
+
+    height: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.034);
+    border-radius: 2px;
+  }
+   
+  ::-webkit-scrollbar-thumb {
+    background: #0e0e0e1f; 
+  
+    border-radius: 2px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #0e0e0e5e; 
+  }
