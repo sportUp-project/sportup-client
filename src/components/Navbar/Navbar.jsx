@@ -2,7 +2,6 @@ import './Navbar.css'
 import { AuthContext } from '../../context/auth.context'
 import {useContext, useEffect, useState} from 'react'
 import {Link, useNavigate} from 'react-router-dom'
-import SportsDropdwon from '../SportsDropdown/SportsDropdown'
 import axios from 'axios'
 
 export default function Navbar(props) {
@@ -15,6 +14,7 @@ export default function Navbar(props) {
     navigate('/')
   }
 
+ 
 
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_API_URL}/api/sports`)
@@ -28,12 +28,36 @@ export default function Navbar(props) {
     .catch(err => console.log(err))
   }, [])
 
+  
+  if (sports.length === 0) {
+    return <span>Loading</span>;
+  }
+
+
+
   return (
     <div className="main-navbar">
       <div>
         <Link  to={"/"}><p className='logo'><span>Sport</span>UP</p></Link>
         <Link  to={"/activities"}>Activities</Link>
-        <SportsDropdwon  sports={sports}/>
+        
+        <div className="dropdown">
+          <button className="dropbtn">Sports</button>
+          <div>
+            <ul className="dropdown-content">
+              { sports.map(sport => {
+                return <li key={sport._id}>
+                  <Link  to={`/activities/sport/${sport._id}`}>{sport.name}</Link>
+                </li> 
+              }) 
+
+              }
+            </ul>
+          </div>
+        </div>
+          
+
+
       </div>
       
       {!isLoggedIn && 
