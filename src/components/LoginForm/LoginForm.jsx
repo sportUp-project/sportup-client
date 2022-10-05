@@ -34,26 +34,31 @@ export default function LoginForm(props) {
   };
 
   return (
-    <form className="login-form" onSubmit={handleLoginSubmit}>
-      <label htmlFor="email">Email:</label>
-      <input
-        type="text"
-        name="email"
-        id="email"
-        value={email}
-        onChange={handleEmail}
-      />
+    <div  className="login-form" >
+     
+      <form  onSubmit={handleLoginSubmit}>
+        <h2>Login</h2>
+        <label htmlFor="email">Email:</label>
+        <input
+          type="text"
+          name="email"
+          id="email"
+          value={email}
+          onChange={handleEmail}
+        />
 
-      <label htmlFor="password">Password:</label>
-      <input
-        type="password"
-        name="password"
-        id="password"
-        value={password}
-        onChange={handlePassword}
-      />
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
-      <button type="submit">Login</button>
-    </form>
+        <label htmlFor="password">Password:</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          value={password}
+          onChange={handlePassword}
+        />
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
+        <button className="button btn-login" type="submit">Login</button>
+        <button className="button btn-signup" type='submit'>Sign up</button>
+      </form>
+    </div>
   );
 }
