@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import axios from "axios";
 import ActivitiesList from "../components/ActivitiesList/ActivitiesList";
-//import { useNavigate } from 'react-router-dom'
 import SportsList from "../components/SportsList/SportsList";
 import "./HomePage.css";
 
@@ -12,11 +11,6 @@ export default function Homepage() {
   const [searchedData, setSearchedData] = useState(null);
   const [search, setSearch] = useState("");
   const [sports, setSports] = useState("");
-
-  // const navigate = useNavigate()
-  // function handleRouting(e) {
-  //   navigate(`activities/`)
-  // }
 
   useEffect(() => {
     axios
