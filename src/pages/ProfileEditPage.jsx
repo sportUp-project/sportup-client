@@ -6,6 +6,7 @@ import ProfileEditForm from "../components/ProfileEditForm/ProfileEditForm";
 
 export default function ProfileEditPage(props) {
   const [userInfo, setUserInfo] = useState(null);
+  // eslint-disable-next-line
   const { user } = useContext(AuthContext);
   const { id } = useParams();
   const [sports,setSports] = useState([])
@@ -21,6 +22,7 @@ export default function ProfileEditPage(props) {
         setUserInfo(response.data.user);
       })
       .catch((err) => console.log(err));
+      // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
@@ -28,6 +30,7 @@ export default function ProfileEditPage(props) {
     .get(`${process.env.REACT_APP_API_URL}/api/sports`)
     .then(response => setSports(response.data))
     .catch(err => console.log(err))
+    // eslint-disable-next-line
   }, [])
   
 

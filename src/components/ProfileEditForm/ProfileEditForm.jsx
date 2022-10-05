@@ -99,10 +99,7 @@ export default function ProfileEditForm(props) {
           onChange={(e) => handleFileUpload(e)}
         />
         </label>
-
-        {/* <label htmlFor="password">Password</label>
-      <input type="password" name="password" id="password" value={password} onChange={e => setPassword(e.target.value)}/> */}
-
+        
         <button className="button" type="submit">Save changes</button>
       </form>
       <div className="edit-sport-holder">
