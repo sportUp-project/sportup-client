@@ -29,7 +29,7 @@ export default function Homepage() {
           })
           .splice(4);
 
-        return setSports(sportsList);
+          return setSports(sportsList);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -63,6 +63,22 @@ export default function Homepage() {
     );
   });
 
+  function renderSportsBar() {
+    return (
+      <div className="sports-bar">
+
+      <SportsList sports={sports} />
+        <h3>Find your next sport activity and connect</h3>
+        <input
+          value={search}
+          type="text"
+          placeholder="Search by sport or activity..."
+          onChange={handleInput}
+        />
+      </div>
+    )
+  }
+
   return (
     <div className="main-container">
 
@@ -72,14 +88,7 @@ export default function Homepage() {
           <h2>{'Welcome back '+ user.name + '!'}</h2>
         }   
 
-        <SportsList sports={sports} />
-        <h3>Find your next sport activity and connect</h3>
-        <input
-          value={search}
-          type="text"
-          placeholder="Search by sport or activity..."
-          onChange={handleInput}
-        />
+      {sports && renderSportsBar()}
 
         {!user ? (
           <div className="btns">
