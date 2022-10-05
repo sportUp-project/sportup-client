@@ -39,7 +39,6 @@ export default function ActivitiesMainPage(props) {
   const sportsShortList = sportsCopy.slice(0,5)
 
 
-  console.log(activities)
   return (
     <div className="activities-main">
       <div className='choose-sport'>

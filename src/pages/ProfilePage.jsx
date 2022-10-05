@@ -29,8 +29,6 @@ export default function ProfilePage(props) {
       });
   }, [pageUserId]);
 
-  // console.log({userInfo})
-  // console.log({user})
   if (userInfo === null) {
     return <span>Loading</span>;
   }

@@ -23,7 +23,6 @@ export default function ProfileDetails(props) {
     setShowListFollowing(!showListFollowing);
   };
 
-  console.log(userInfo)
  
   return (
     <div className="profile-holder">

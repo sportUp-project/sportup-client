@@ -7,8 +7,6 @@ import { useParams } from 'react-router-dom'
 
 function FollowBtn(props) {
     const { userInfo, user, setUserInfo } = props
-    console.log(userInfo)
-    console.log(user)
     const storedToken = localStorage.getItem('authToken')
  
     const { id } = useParams()
@@ -19,8 +17,7 @@ function FollowBtn(props) {
             `${process.env.REACT_APP_API_URL}/profile/${id}/follow`, 
             {},
             {headers: {Authorization: `Bearer ${storedToken}`}})
-            .then((response)=> {
-                console.log(response.data)                
+            .then((response)=> {               
                 setUserInfo(response.data)
             })            
             .catch(err => console.log(err))

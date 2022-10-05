@@ -17,7 +17,6 @@ function FollowingOverveiw() {
       })
       .then((response) => {
         const follows = response.data.user.follows;
-        console.log(follows);
         setUserFollows(follows);
       })
       .catch((err) => console.log(err));

@@ -68,7 +68,7 @@ function AuthProviderWrapper(props) {
   // If yes, update our state variables accordingly
   // If not, update our state variable isLoading to false
   useEffect(() => {
-    console.log('authenticating')
+
     authenticateUser();
   }, []);
 

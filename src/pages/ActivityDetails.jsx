@@ -126,7 +126,6 @@ export default function ActivityDetails(props) {
       </button>
     );
   }
-  console.log(activity)
 
   return (
     <div className="activity-details-holder">

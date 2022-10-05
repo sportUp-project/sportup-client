@@ -56,14 +56,12 @@ export default function ProfileEditForm(props) {
   function handleSportClick(e) {
     e.preventDefault();
     const targetId = e.currentTarget.id;
-    console.log(`clicked ${targetId}`);
 
     if (userSports.includes(targetId)) {
       const userSportsCopy = [...userSports];
       setUserSports(userSportsCopy.filter((sport) => sport !== targetId));
     } else {
       const userSportsCopy = [...userSports];
-      console.log(userSportsCopy);
       setUserSports([...userSportsCopy, targetId]);
     }
   }

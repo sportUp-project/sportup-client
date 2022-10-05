@@ -19,7 +19,6 @@ export default function ActivitiesEditForm(props) {
 
   const {user} = useContext(AuthContext)
 
-  console.log(activity)
   const [name,setName] = useState(activity.name)
   const [sport,setSport] = useState(activity.sport)
   const [description,setDescription] = useState(activity.description)
@@ -62,9 +61,6 @@ export default function ActivitiesEditForm(props) {
 
   function handleMemberRemove(e) {
     e.preventDefault();
-    console.log('hello from handle remove')
-    console.log(e.target.getAttribute('id'))
-
     setMembers(members.filter(member => member._id !== e.target.getAttribute('id')))
 
   }
