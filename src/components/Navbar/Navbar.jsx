@@ -13,19 +13,22 @@ export default function Navbar(props) {
   }
   return (
     <div className="main-navbar">
-      <Link to={"/"}>SportUP</Link>
-      <Link to={"/activities"}>Activities</Link>
+      <div>
+        <Link to={"/"}><p className='logo'><span>Sport</span>UP</p></Link>
+        <Link to={"/activities"}>Activities</Link>
+      </div>
+      
       {!isLoggedIn && 
-        <>
-        <Link to={"/login"}>Log in </Link>
-        <Link to={"/signup"}>Sign up</Link>
-      </>}
+        <div>
+          <Link to={"/login"}>Log in </Link>
+          <Link to={"/signup"}>Sign up</Link>
+       </div>}
       {isLoggedIn &&
-      <>
-        <Link to={`/activities/add`}>+</Link>
-        <button onClick={handleLogOut}>Log out</button>
-        <Link to={`/profile/${user._id}`} >Profile</Link>
-      </>
+      <div>
+          <Link to={`/activities/add`}>+</Link>
+          <button onClick={handleLogOut}>Log out</button>
+          <Link to={`/profile/${user._id}`} >Profile</Link>
+      </div>
       }
     </div>
   )
