@@ -7,7 +7,7 @@
     grid-template-columns: 2fr 3fr;
     grid-template-rows: 2fr 5fr; */
     margin-top: 30px;
-    padding: 0px 20px;
+    padding: 0px 35px;
     gap:20px;
     display: flex;
 }
@@ -54,6 +54,14 @@ h4 {
 
 }
 
-@media screen and (min-width: 769px) {
-    /* STYLES HERE */
+@media screen and (max-width: 769px) {
+    .profile-holder {
+        flex-direction: column;
+    }
+    .profile-info {
+        width: 100%;
+    }
+    .profile-all-activities {
+        width: 100%;
+    }
 }
