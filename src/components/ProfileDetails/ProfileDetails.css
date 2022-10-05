@@ -47,6 +47,9 @@
     gap:20px;
     flex-wrap: wrap;
 }
+.follow-div {
+    cursor: pointer;
+}
 
 h4 {
     margin:0;
@@ -54,7 +57,7 @@ h4 {
 
 }
 
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 850px) {
     .profile-holder {
         flex-direction: column;
     }
@@ -64,4 +67,5 @@ h4 {
     .profile-all-activities {
         width: 100%;
     }
+
 }

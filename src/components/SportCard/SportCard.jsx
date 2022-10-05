@@ -6,7 +6,7 @@ export default function SportCard(props) {
   const {showDetails} = props
   const navigate = useNavigate()
   function handleRouting(e) {
-    navigate(`sport/${sport._id}`)
+    navigate(`/activities/sport/${sport._id}`)
   }
 
   return (

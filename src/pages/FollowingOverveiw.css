@@ -1,0 +1,29 @@
+.following-user-holder .user-logo img {
+    width: 50%;
+}
+.following-user-holder {
+    display:flex;
+    justify-content: center;
+    height: 30%;
+    margin-bottom: 100px;
+    padding: 30px 0 ;
+}
+.following-user-holder .user-info {
+    width: 30%;
+}
+.activities-of-following {
+    height: 30%;
+    width: 60%;
+}
+
+.activities-of-following {
+    display: grid;
+    grid-template-rows: 200px 200px;
+}
+
+
+
+.activities-of-following .activity-card {
+    width: 100px;
+    height: 100px;
+}

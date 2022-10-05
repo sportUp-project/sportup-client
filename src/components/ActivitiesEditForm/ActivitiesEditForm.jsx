@@ -4,6 +4,7 @@ import Map, {Marker} from 'react-map-gl'
 import {useState, useEffect, useContext,} from 'react'
 import { AuthContext } from '../../context/auth.context'
 import axios from 'axios'
+import UserCard from '../UserCard/UserCard'
 
 export default function ActivitiesEditForm(props) {
 
@@ -96,19 +97,22 @@ export default function ActivitiesEditForm(props) {
 
       {/* <label htmlFor="location">Location</label>
       <input type="text" name="location" id="location" value={location} onChange={e=>setLocation(e.target.value)}/> */}
-      <label htmlFor="members">Joined by:</label>
-      {members.map(member => {
-        return (
-          <span id={member._id} key={member._id}>{member.name}</span>
-        )
-      })}
+      {members && <label htmlFor="members">Joined by:</label>}
+      <div className="members-holder">
+        {members.map(member => {
+            {/* <span id={member._id} key={member._id}>{member.name}</span> */}
+          return (
+            <UserCard user={member} />
+          )
+        })}
+      </div>
 
       <button className='button' type='submit'>Submit</button>
     </form>
     
     <Map
       {...viewState}
-      style={{ height: 400, width: 400 }}
+      style={{ height: 350, width: 350 }}
       onMove={(evt) => setViewState(evt.viewState)}
       mapStyle="mapbox://styles/mapbox/streets-v9"
 

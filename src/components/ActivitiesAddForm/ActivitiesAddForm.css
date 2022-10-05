@@ -37,5 +37,6 @@
 @media screen and (max-width:800px) {
     .activity-add-form {
         flex-direction: column;
+        align-items: center;
     }
 }
