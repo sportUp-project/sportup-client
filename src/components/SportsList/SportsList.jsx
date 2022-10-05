@@ -4,6 +4,12 @@ export default function SportsList(props) {
   const {sports, showDetails} = props
   // to add : show only 5 most popular sports 
   // and create additional dropdown 
+  if (sports === null) {
+    return (
+      <span>Loading...</span>
+    )
+  }
+
   return(
     <div className="sports-list">
       {sports.map(sport => {

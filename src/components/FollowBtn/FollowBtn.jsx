@@ -40,11 +40,11 @@ function FollowBtn(props) {
     }
     if (userInfo.followers.filter(fol => fol._id === user._id).length !== 0 ) {
         return (
-            <button className="btn-follow" onClick = {unfollowfollowUser}>Unfollow</button>
+            <button className="button btn-follow" onClick = {unfollowfollowUser}>Unfollow</button>
         ) 
     }
     return (
-        <button className="btn-follow" onClick = {followUser}>Follow</button>
+        <button className="button btn-follow" onClick = {followUser}>Follow</button>
     )
 }
 
