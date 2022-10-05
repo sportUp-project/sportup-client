@@ -38,7 +38,7 @@ function SportMainPage(props) {
         </div>
         
           <Search searchedData={ sport.activities } />
-          {user && <Link to={`/activities/add`}>Add an activity</Link>}
+          
              
         
       </div>
