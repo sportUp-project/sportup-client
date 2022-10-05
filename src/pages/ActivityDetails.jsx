@@ -6,6 +6,7 @@ import moment, { duration } from "moment";
 import UserCard from "../components/UserCard/UserCard";
 import { AuthContext } from "../context/auth.context";
 import './ActivityDetails.css'
+import SportCard from "../components/SportCard/SportCard";
 
 export default function ActivityDetails(props) {
   const { id } = useParams();
@@ -41,7 +42,7 @@ export default function ActivityDetails(props) {
             zoom: 12,
           }}
           style={{ height: 300, width: 300 }}
-          mapStyle="mapbox://styles/mapbox/streets-v9"
+          mapStyle="mapbox://styles/mapbox/light-v10"
         >
           <Marker
             longitude={activity.location.long}
@@ -112,18 +113,6 @@ export default function ActivityDetails(props) {
     return <span>Loading...</span>;
   }
 
-  console.log(activity);
-  // console.log(user)
-
-  console.log(
-    "filter if member has joined",
-    activity.members.filter((member) => member._id === user._id).length === 1
-  );
-  console.log(
-    "filter if user is not creator",
-    activity.createdBy._id !== user._id
-  );
-
   function renderJoinButton() {
     return activity.createdBy._id !== user._id &&
       activity.members.filter((member) => member._id === user._id).length ===
@@ -137,26 +126,35 @@ export default function ActivityDetails(props) {
       </button>
     );
   }
+  console.log(activity)
 
   return (
     <div className="activity-details-holder">
       <div className="activity-details-card">
-        <h4>{activity.name}</h4>
-        <Link to={`/profile/${activity.createdBy._id}`}>
-          <p><UserCard user={activity.createdBy} /></p>
-        </Link>
-        <p>
-          <Link to={`/activities/sport/${activity.sport._id}`}>
-            {activity.sport?.name}
-          </Link>
-        </p>
-        <p>{activity.description}</p>
-        <p>{dateFormatted}</p>
-        <p>Duration: {durationFormatted}</p>
+        <div className="background-holder" style={{'backgroundImage':`url(${activity.sport.imageUrl})`}}>
+          <div className="main-info-holder">
+            <Link to={`/profile/${activity.createdBy._id}`}>
+              <p><UserCard user={activity.createdBy} /></p>
+            </Link>
+            
+            <p>{activity.name}</p>
+            <p>
+              <SportCard sport={activity.sport} />
+            </p>
+            <p>{activity.description}</p>
+            <p>{dateFormatted}</p>
+            <p>Duration: {durationFormatted}</p>
+
+
+          </div>
+              {/* conditionally render map to avoid errors */}
+              {activity !== null && renderMap()}
+        </div>
         <p>Members joining:</p>
 
         <div className="members-holder">
-          {activity.members.map((member) => {
+
+          {activity.members.slice(0,10).map((member) => {
             return <Link to={`/profile/${member._id}`} > <UserCard user={member} /> </Link>;
           })}
         </div>
@@ -178,8 +176,7 @@ export default function ActivityDetails(props) {
         </div>
       </div>
 
-      {/* conditionally render map to avoid errors */}
-      {activity !== null && renderMap()}
+
     </div>
   );
 }
