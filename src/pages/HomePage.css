@@ -98,5 +98,12 @@
     max-width: 400px;
     display: flex;
     justify-content: space-between;
+    gap:10px;
+}
+.btns .button {
+    min-width: 122px;
+}
 
+.main-container>.activities-list>.activity-card {
+    max-width: 250px;
 }
