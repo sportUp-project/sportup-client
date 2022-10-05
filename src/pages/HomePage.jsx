@@ -65,11 +65,13 @@ export default function Homepage() {
 
   return (
     <div className="main-container">
-      <section className="center-main">
-        <h1>
-          <strong>Sport</strong>UP
-        </h1>
-        {user && <h2>{"Welcome back " + user.name + "!"}</h2>}
+
+      <section className='center-main'>
+      <h1><span>Sport</span>UP</h1>
+        {user &&
+          <h2>{'Welcome back '+ user.name + '!'}</h2>
+        }   
+
         <SportsList sports={sports} />
         <h3>Find your next sport activity and connect</h3>
         <input
