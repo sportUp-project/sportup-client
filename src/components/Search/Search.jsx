@@ -23,7 +23,7 @@ function Search(props) {
   return (
     <>
       <label>Search</label>
-      <input value={ search } type="text" placholder="Search..." onChange={handleInput} />
+      <input value={ search } type="text" placeholder="Search activity..." onChange={handleInput} />
       { 
       <ActivitiesList activities={data} />
       }

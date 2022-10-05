@@ -3,7 +3,8 @@ import { Link, useParams } from 'react-router-dom'
 import axios from 'axios';
 import Search from '../components/Search/Search';
 import { AuthContext } from "../context/auth.context";
-
+import SportCard from '../components/SportCard/SportCard';
+import './SportMainPage.css'
 
 
 function SportMainPage(props) {
@@ -23,13 +24,23 @@ function SportMainPage(props) {
       }
 
     return (
-      <div className="sport-main"> 
-        <img src={sport.iconUrl} alt={sport.name} />
-        <img src={sport.imageUrl} alt={ `background ${sport.name}`} className='background-img sport-img'  />
-        <h3>{sport.name}</h3>
-
-        <Search searchedData={ sport.activities } />
-        {user && <Link to={`/activities/add`}>Add an activity</Link>}
+      <div className="sport-main"  > 
+        <div className="sport-data" style={{'backgroundImage':`url(${sport.imageUrl})`}} >
+          <div  className="data-container"> 
+            <SportCard sport={sport} />
+            <div className="sport-details">
+              <h2>{sport.name}</h2>
+              <h3>Total activities: {sport.activities.length}</h3>
+              {user && <Link to={`/activities/add`}>Add an activity</Link>}
+            </div>
+          </div>
+          
+        </div>
+        
+          <Search searchedData={ sport.activities } />
+          {user && <Link to={`/activities/add`}>Add an activity</Link>}
+             
+        
       </div>
     )
   
