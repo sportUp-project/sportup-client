@@ -9,7 +9,7 @@ a {
 
 .button {
   box-sizing: border-box;
-  border: 1px solid white;
+  /* border: 1px solid white; */
   padding: 0.5em 2em;
   border-radius: 5px;
   text-align: center;
@@ -50,7 +50,11 @@ a {
   background: #0e0e0e5e; 
 }
 
-
 .h3 {
   padding: 0;
+}
+
+input:focus {
+  outline: none;
+  background-color: white;
 }

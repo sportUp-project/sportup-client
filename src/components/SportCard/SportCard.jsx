@@ -13,10 +13,12 @@ export default function SportCard(props) {
     <div className="sport-card" onClick={handleRouting}>
       <div className="image-holder">
         <img src={sport.iconUrl} alt={sport.name} />
-
       </div>
-      <span>{sport.name}</span>
-      {showDetails && <span>{sport.activities.length}</span>}
+      {showDetails && <>
+        <span>{sport.name}</span>
+        <span>{sport.activities.length}</span>
+      </>
+      }
     </div>
   )
 }
