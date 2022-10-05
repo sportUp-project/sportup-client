@@ -8,6 +8,7 @@ a {
 
 
 .button {
+  all:unset;
   box-sizing: border-box;
   /* border: 1px solid white; */
   padding: 0.5em 2em;
