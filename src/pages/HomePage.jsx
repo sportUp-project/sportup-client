@@ -63,7 +63,7 @@ export default function Homepage() {
   return (
     <div className="main-container">
       <section className='center-main'>
-      <h1><strong>Sport</strong>UP</h1>
+      <h1><span>Sport</span>UP</h1>
         {user &&
           <h2>{'Welcome back '+ user.name + '!'}</h2>
         }   
