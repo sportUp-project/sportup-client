@@ -1,0 +1,29 @@
+.main-navbar {
+    height: 50px;
+    width: 100%;
+    font-size: 1.2em;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    justify-content:space-between;
+    box-shadow: 5px 2px 26px 10px grey;
+    position: sticky;  
+    top: 0;  
+}
+
+.logo { 
+    font-size: 1.4em;   
+    font-weight: 900;
+    color: rgb(10, 10, 10);
+
+}
+
+.logo span {
+    font-style: italic;
+}
+
+.main-navbar div{
+    display: flex;
+    flex-direction: row;
+}
