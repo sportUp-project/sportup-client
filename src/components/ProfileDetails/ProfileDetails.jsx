@@ -40,7 +40,7 @@ export default function ProfileDetails(props) {
         )}
         {userInfo.follows.length > 0 && (
           <>
-            <div
+            <div className="follow-div"
               onMouseEnter={toggleShowListFollowing}
               onMouseLeave={toggleShowListFollowing}
             >
