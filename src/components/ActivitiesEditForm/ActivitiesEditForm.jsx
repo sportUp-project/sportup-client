@@ -16,7 +16,7 @@ export default function ActivitiesEditForm(props) {
       latitude: activity.location.lat,
       zoom: 11,
     });
-
+// eslint-disable-next-line
   const {user} = useContext(AuthContext)
 
   const [name,setName] = useState(activity.name)
@@ -24,6 +24,7 @@ export default function ActivitiesEditForm(props) {
   const [description,setDescription] = useState(activity.description)
   const [duration,setDuration] = useState(activity.duration)
   const [activityDate,setActivityDate] = useState(activity.activityDate)
+  // eslint-disable-next-line
   const [members, setMembers] = useState(activity.members)
   const storedToken = localStorage.getItem('authToken')
   const [sportList,setSportList] = useState([])
@@ -59,11 +60,6 @@ export default function ActivitiesEditForm(props) {
       .catch(err => console.log(err))
   }
 
-  function handleMemberRemove(e) {
-    e.preventDefault();
-    setMembers(members.filter(member => member._id !== e.target.getAttribute('id')))
-
-  }
 
   return (
     <div className="activity-add-form">
@@ -96,7 +92,6 @@ export default function ActivitiesEditForm(props) {
       {members && <label htmlFor="members">Joined by:</label>}
       <div className="members-holder">
         {members.map(member => {
-            {/* <span id={member._id} key={member._id}>{member.name}</span> */}
           return (
             <UserCard user={member} />
           )

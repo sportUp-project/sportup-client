@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { Link, Navigate, Route, Routes, useNavigate, useParams } from "react-router-dom";
+import {  useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import ProfileDetails from '../components/ProfileDetails/ProfileDetails'
 import axios from "axios";
@@ -27,6 +27,7 @@ export default function ProfilePage(props) {
         console.log(err)
         navigate('/login')
       });
+      // eslint-disable-next-line
   }, [pageUserId]);
 
   if (userInfo === null) {

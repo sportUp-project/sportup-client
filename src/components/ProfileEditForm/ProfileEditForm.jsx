@@ -2,18 +2,16 @@ import "./ProfileEditForm.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import SportCard from "../SportCard/SportCard";
 
 export default function ProfileEditForm(props) {
   const { userInfo } = props;
   const { sports } = props;
 
-  const [user, setUser] = useState(userInfo);
+  const [user] = useState(userInfo);
 
   const [name, setName] = useState(user.name);
   const [image, setImage] = useState(user.image);
   const [description, setDescription] = useState(user.description);
-  const [password, setPassword] = useState("");
   const [userSports, setUserSports] = useState(
     user.sports.map((sport) => sport._id)
   );
@@ -110,18 +108,7 @@ export default function ProfileEditForm(props) {
       <div className="edit-sport-holder">
         {sports.map((sport) => {
           if (userSports.includes(sport._id)) {
-            {
-              /* <div key={sport._id} className="single-sport">
-                <img
-                  id={sport._id}
-                  onClick={handleSportClick}
-                  src={sport.iconUrl}
-                  alt={sport._name}
-                  className={"clicked"}
-                />
-                <span>{sport.name}</span>
-              </div> */
-            }
+
             return (
               <div id={sport._id} className="sport-card clicked" onClick={handleSportClick}>
                 <div className="image-holder">

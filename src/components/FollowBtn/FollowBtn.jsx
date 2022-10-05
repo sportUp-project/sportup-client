@@ -1,4 +1,4 @@
-import { useState } from 'react'
+
 import './FollowBtn.css'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'

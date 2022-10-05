@@ -1,9 +1,8 @@
 import './UserCard.css'
-import { Link } from 'react-router-dom';
 
 
 export default function UserCard(props) {
-  const {user, useDetails} = props;
+  const {user} = props;
 
   return (
     <div className="user-card">

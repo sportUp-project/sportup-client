@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ActivitiesList from "../components/ActivitiesList/ActivitiesList";
 import axios from "axios";
@@ -20,6 +20,7 @@ function FollowingOverveiw() {
         setUserFollows(follows);
       })
       .catch((err) => console.log(err));
+      // eslint-disable-next-line
   }, []);
 
   if (userFollows === null) {

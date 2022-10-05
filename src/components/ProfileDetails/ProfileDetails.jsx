@@ -5,7 +5,6 @@ import FollowBtn from "../FollowBtn/FollowBtn";
 import FollowersList from "../FollowersList/FollowersList";
 import { Link } from "react-router-dom";
 import SportCard from "../SportCard/SportCard";
-import ActivityCard from "../ActivityCard/ActivityCard";
 import { AuthContext } from "../../context/auth.context";
 import { useContext } from "react";
 import ActivitiesList from "../ActivitiesList/ActivitiesList";

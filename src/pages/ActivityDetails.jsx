@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Map, Marker } from "react-map-gl";
-import moment, { duration } from "moment";
+import moment from "moment";
 import UserCard from "../components/UserCard/UserCard";
 import { AuthContext } from "../context/auth.context";
 import './ActivityDetails.css'

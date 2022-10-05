@@ -2,7 +2,7 @@ import {useParams} from 'react-router-dom'
 import {useState, useEffect} from 'react'
 import axios from 'axios'
 import ActivitiesEditForm from '../components/ActivitiesEditForm/ActivitiesEditForm'
-import ActivitiesAddForm from '../components/ActivitiesAddForm/ActivitiesAddForm'
+
 
 export default function ActivitiesEdit(props) {
   const {id} = useParams()
@@ -16,7 +16,7 @@ export default function ActivitiesEdit(props) {
     })
     .then(response => setActivity(response.data))
     .catch(err => console.log(err))
-
+    // eslint-disable-next-line
   }, [])
   
   if (activity === null) {
