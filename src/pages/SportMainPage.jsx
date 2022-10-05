@@ -16,7 +16,7 @@ function SportMainPage(props) {
         axios.get(`${process.env.REACT_APP_API_URL}/api/sports/${id}`)
             .then(response => setSport(response.data))
             .catch(err => console.log(err))
-    }, [])
+    }, [sport])
 
   
     if (sport === null) {
