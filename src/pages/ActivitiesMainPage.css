@@ -1,6 +1,6 @@
 
 .choose-sport {
-    height: 60vh;
+    height: 80vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,7 +17,7 @@
     background-color: rgba(230, 230, 230, 0.555);
     box-shadow: rgba(0, 0, 0, 0.452) 0px 5px 15px;
     filter: invert(1);
-    scale: 1.1
+    
 }
 
 .choose-sport .image-holder:hover {
@@ -39,3 +39,7 @@
     font-size: 1.4em;
     
 } 
+
+.activities-main {
+    margin-bottom: 5vh;
+}

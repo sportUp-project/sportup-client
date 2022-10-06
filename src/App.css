@@ -28,7 +28,21 @@ a {
 }
 
 
+@media screen and (max-width:700px) {
+  .button{
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 0.5em 1em;
+  }
+  .center-main input {
+    padding-left: 5px;
+  }
+  .center-main .btns {
+    gap: 2px
+  }
 
+
+}
 
 /* Added by Joanna  */
 

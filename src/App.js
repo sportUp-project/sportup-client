@@ -11,6 +11,7 @@ import ActivitiesMainPage  from './pages/ActivitiesMainPage';
 import SportMainPage from './pages/SportMainPage';
 import FollowingOverveiw from './pages/FollowingOverveiw';
 import ActivitiesEdit from './pages/ActivitiesEdit'
+import Footer from './components/Footer/Footer';
 
 import './App.css';
 
@@ -31,6 +32,7 @@ function App() {
         <Route path={'/activities/sport/:id'} element={<SportMainPage />} />
         <Route path={'/profile/:id/following'} element={<FollowingOverveiw />} />
       </Routes>
+      <Footer/>
     </div>
   );
 }
