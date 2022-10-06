@@ -32,12 +32,16 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
+    background-color: black;
     background: url('../../public/assets/01.jpg');
     background-position: center; 
     background-repeat: no-repeat; 
     background-size: cover; 
-    animation: image 25s infinite linear;    
+    animation-name: image;    
+    animation-duration: 25s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-delay: -25s;
     color: white;  
     box-shadow: rgba(0, 0, 0, 0.411) 0px 10px 20px ;
     margin-bottom: 50px;
@@ -61,7 +65,7 @@
 
 .center-main h1 {
     margin: 0;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
     font-size: 2em;
     font-weight: 900;
     color: black;
