@@ -79,7 +79,9 @@ export default function Homepage() {
 
   return (
     <div className="main-container">
-
+    <div className="hiddenPreload">
+      
+    </div>
       <section className='center-main'>
       <h1><span>Sport</span>UP</h1>
         {user &&

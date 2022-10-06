@@ -25,7 +25,13 @@
             background-size: cover;}
   }
 
-
+.hiddenPreload {
+    height: 1px;
+    width: 1px;
+    animation: image;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+}
 .center-main{
     height: 80vh;
     display: flex;
