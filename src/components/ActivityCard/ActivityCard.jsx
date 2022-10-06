@@ -17,7 +17,6 @@ export default function ActivityCard(props) {
   }
 
   function renderjoinedBy() {
-    console.log(limitedMembers)
     if (limitedMembers.length === 1 && limitedMembers[0]._id === activity.createdBy._id ) {
       return
     } else {
