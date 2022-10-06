@@ -8,7 +8,7 @@
 }
 
 .creator-holder>img{
-    width: 20em;
+    width: 16em;
 }
 .link-logo {
     cursor: pointer;
@@ -18,7 +18,9 @@
 .creator-holder {
     display: flex;
     flex-direction: column;
-    width: 20em;
+    justify-content: center;
+    align-items: center;
+    width: 18em;
     padding: 20px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }

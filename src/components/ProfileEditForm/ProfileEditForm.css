@@ -47,12 +47,11 @@
 .edit-sport-holder {
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     padding: 10px 10px;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(80px,1fr));
+    grid-template-rows: repeat(3, 1fr);
     gap:30px;
-    flex-wrap: wrap;
     padding: 10px 10px;
-    justify-content: center;
-    align-items: flex-start;
 }
 
 
