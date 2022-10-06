@@ -7,6 +7,8 @@ import UserCard from "../components/UserCard/UserCard";
 import { AuthContext } from "../context/auth.context";
 import './ActivityDetails.css'
 import SportCard from "../components/SportCard/SportCard";
+import { v4 as uuidv4 } from 'uuid';
+
 
 export default function ActivityDetails(props) {
   const { id } = useParams();
@@ -132,14 +134,12 @@ export default function ActivityDetails(props) {
       <div className="activity-details-card">
         <div className="background-holder" style={{'backgroundImage':`url(${activity.sport.imageUrl})`}}>
           <div className="main-info-holder">
-            <Link to={`/profile/${activity.createdBy._id}`}>
-              <p><UserCard user={activity.createdBy} /></p>
+            <Link key={uuidv4()} to={`/profile/${activity.createdBy._id}`}>
+              <UserCard key={uuidv4()} user={activity.createdBy} />
             </Link>
             
             <p>{activity.name}</p>
-            <p>
-              <SportCard sport={activity.sport} />
-            </p>
+              <SportCard key={uuidv4()} sport={activity.sport} />
             <p>{activity.description}</p>
             <p>{dateFormatted}</p>
             <p>Duration: {durationFormatted}</p>
@@ -154,7 +154,7 @@ export default function ActivityDetails(props) {
         <div className="members-holder">
 
           {activity.members.slice(0,10).map((member) => {
-            return <Link to={`/profile/${member._id}`} > <UserCard user={member} /> </Link>;
+            return <Link key={uuidv4()} to={`/profile/${member._id}`} > <UserCard user={member} /> </Link>;
           })}
         </div>
 

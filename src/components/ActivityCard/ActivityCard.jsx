@@ -2,6 +2,7 @@ import "./ActivityCard.css";
 import { useNavigate } from "react-router-dom";
 import moment from "moment";
 import UserCard from '../UserCard/UserCard'
+import { v4 as uuidv4 } from 'uuid'
 
 export default function ActivityCard(props) {
   const { activity } = props;
@@ -25,7 +26,7 @@ export default function ActivityCard(props) {
                   <p className='full'>Joined by: </p>
         <div className='icon-container'>
         { limitedMembers.map((member) => {
-          return <UserCard key={member._id} user={member} />;
+          return <UserCard key={uuidv4()} user={member} />;
         })}
         {count > 0 && <p>'+'+{count}</p>}
         </div>
@@ -50,7 +51,7 @@ export default function ActivityCard(props) {
   return (
     <div className="activity-card" onClick={handleRouting}>
       <div className="user-icon">
-        <UserCard key={activity._id} user={activity.createdBy} />
+        <UserCard key={uuidv4()} user={activity.createdBy} />
       </div>
       <img className="activity-img" src={activity.sport.imageUrl} alt={activity.sport.name} />
       {/* <img classNAme="user-icon" src={activity.createdBy.image} alt={activity.createdBy.name} /> */}
