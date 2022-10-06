@@ -38,8 +38,6 @@
     background-repeat: no-repeat; 
     background-size: cover; 
     animation: image 25s infinite linear;    
-   
-
     color: white;  
     box-shadow: rgba(0, 0, 0, 0.411) 0px 10px 20px ;
     margin-bottom: 50px;
@@ -92,7 +90,7 @@
     border-radius: 0;
     box-sizing: border-box;
     height: 30px;
-    width: 100%;
+    width: 60vw;
     padding-left: 30px; 
     background-color: rgba(255, 255, 255, 0.7);  
     box-shadow: 5px 5px 5px rgb(41, 41, 41);
@@ -116,6 +114,7 @@
 }
 
 .sport-bar{
+    display: flex;
     padding: 20px 0px;
      margin-bottom: 5vh;
 }
