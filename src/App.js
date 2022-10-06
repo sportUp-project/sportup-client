@@ -12,6 +12,7 @@ import SportMainPage from './pages/SportMainPage';
 import FollowingOverveiw from './pages/FollowingOverveiw';
 import ActivitiesEdit from './pages/ActivitiesEdit'
 import Footer from './components/Footer/Footer';
+import AboutPage from './pages/AboutPage'
 
 import './App.css';
 
@@ -31,6 +32,7 @@ function App() {
         <Route path={'/activities/:id/edit'} element={<ActivitiesEdit/>} />
         <Route path={'/activities/sport/:id'} element={<SportMainPage />} />
         <Route path={'/profile/:id/following'} element={<FollowingOverveiw />} />
+        <Route path={'/about'} element={<AboutPage />} /> 
       </Routes>
       <Footer/>
     </div>

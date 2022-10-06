@@ -6,11 +6,16 @@ import ActivitiesList from "../components/ActivitiesList/ActivitiesList";
 import SportsList from "../components/SportsList/SportsList";
 import "./HomePage.css";
 
+
+
+
 export default function Homepage() {
   const { user } = useContext(AuthContext);
   const [searchedData, setSearchedData] = useState(null);
   const [search, setSearch] = useState("");
   const [sports, setSports] = useState("");
+
+  
 
   useEffect(() => {
     axios
