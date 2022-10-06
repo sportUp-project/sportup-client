@@ -4,7 +4,7 @@
     background-color: rgba(0, 0, 0, 0.082);
     color: rgb(0, 0, 0);
     height: 60px;
-    width: 100vw;
+    width: 100%;
     
     display: flex;
     bottom: 0;   
@@ -35,18 +35,17 @@
 }
 .footer ul{
     list-style: none;
-    margin: 0;
-    padding: 9px 60px;
+    margin: 9px;
     display: flex;  
     flex-wrap: wrap;
-    
+    margin-left: 20px;
     list-style-image: url('../../../public/assets/kisspng-computer-icons-logo-portable-network-graphics-clip-icons-for-free-iconza-circle-social-5b7fe46b4ec817.2080142615351082033227.png')
 }
 
 .footer li {   
     text-align: left;
     width: 140px;
-    font-size: .95em;
+    font-size: .9em;
     font-weight: 200
 }
 
@@ -60,6 +59,10 @@
 
 }
 
-
+@media screen and (max-width:700px) {
+    .footer h3 {
+      display: none;
+    }
+  }
 
  
