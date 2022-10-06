@@ -10,8 +10,8 @@ export default function Footer(props){
             
             <h3>Created by:</h3>
             <ul>
-                <li><Link to='https://github.com/j-zielinska'>Janna Zielinska </Link></li>
-                <li><Link to='https://github.com/veykos'>Pavel Popov</Link></li>
+                <li><a href='https://github.com/j-zielinska'>Janna Zielinska </a></li>
+                <li><a href='https://github.com/veykos'>Pavel Popov</a></li>
             </ul>                
             
         </footer>
