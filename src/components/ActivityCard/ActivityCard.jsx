@@ -16,6 +16,26 @@ export default function ActivityCard(props) {
     limitedMembers = activity.members
   }
 
+  function renderjoinedBy() {
+    console.log(limitedMembers)
+    if (limitedMembers.length === 1 && limitedMembers[0]._id === activity.createdBy._id ) {
+      return
+    } else {
+      return (
+        <div className="joinedMmbrs">
+                  <p className='full'>Joined by: </p>
+        <div className='icon-container'>
+        { limitedMembers.map((member) => {
+          return <UserCard key={member._id} user={member} />;
+        })}
+        {count > 0 && <p>'+'+{count}</p>}
+        </div>
+
+        </div>
+      )
+    }
+  }
+
   function renderDate() {
     return moment(activity.activityDate).format("d.M.yyyy, hh:mm A");
   }
@@ -31,7 +51,7 @@ export default function ActivityCard(props) {
   return (
     <div className="activity-card" onClick={handleRouting}>
       <div className="user-icon">
-        <UserCard user={activity.createdBy} />
+        <UserCard key={activity._id} user={activity.createdBy} />
       </div>
       <img className="activity-img" src={activity.sport.imageUrl} alt={activity.sport.name} />
       {/* <img classNAme="user-icon" src={activity.createdBy.image} alt={activity.createdBy.name} /> */}
@@ -41,13 +61,7 @@ export default function ActivityCard(props) {
       <p className='full'><span className="bold-text">Date: </span>{dateFormatted}</p>
       <p className='full'>{durationFormatted}</p>
       {activity.members.length > 0 && 
-        <p className='full'>Joined by: </p>}
-        <div className='icon-container'>
-        { limitedMembers.map((member) => {
-          return <UserCard user={member} />;
-        })}
-        {count > 0 && <p>'+'+{count}</p>}
-        </div>
+        renderjoinedBy()}
 
     </div>
   );
