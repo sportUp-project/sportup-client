@@ -50,6 +50,8 @@
     display: flex;
     gap:30px;
     flex-wrap: wrap;
+    padding: 10px 10px;
+    justify-content: center;
     align-items: flex-start;
 }
 
