@@ -33,6 +33,10 @@
     align-items: center;
     justify-content: center;
     
+    background: url('../../public/assets/01.jpg');
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
     animation: image 25s infinite linear;    
    
 
@@ -88,12 +92,12 @@
     border-radius: 0;
     box-sizing: border-box;
     height: 30px;
-    width: 60vw;
+    width: 100%;
     padding-left: 30px; 
     background-color: rgba(255, 255, 255, 0.7);  
     box-shadow: 5px 5px 5px rgb(41, 41, 41);
     font-size: 16px;
-    margin: 2% 8% 10% 8%;
+    margin: 5% 0% 5% 0%;
 }
 
 .center-main .btns {
@@ -101,7 +105,7 @@
     max-width: 400px;
     display: flex;
     justify-content: space-between;
-    gap:10px;
+    gap: 10px;
 }
 .btns .button {
     min-width: 100px;
@@ -112,5 +116,6 @@
 }
 
 .sport-bar{
+    padding: 20px 0px;
      margin-bottom: 5vh;
 }
