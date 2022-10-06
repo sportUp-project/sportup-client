@@ -5,7 +5,7 @@ export default function AboutPage(props) {
     <div className="about-holder">
       <section className="creator-holder">
         <h3>Joanna Zielinska</h3>
-        <img src="" alt="" />
+        <img src="https://res.cloudinary.com/dxc2oj7lt/image/upload/c_scale,q_69,w_1463/v1665062794/sportUp-users-gallery/unnamed_2_axp8td.jpg" alt="joanna profile" />
         <p>Hi, I'm Pavel and I'm an aspiring web developer. I moved to Berlin in August to pursue my passion for web development. Ironhack Berlin was an amazing experience for me and now I'm looking for job opportunities. Outside of programming I enjoy lifting weights, cooking and reading.</p>
         <div className="sc-holder">
         <a rel='noreferrer' target="_blank" href="https://www.linkedin.com/in/j-m-zielinska/"><img className='link-logo' src="https://res.cloudinary.com/dxc2oj7lt/image/upload/v1665059333/sportUp-users-gallery/linkedin_tscs52.png" alt="github" /></a>
