@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useMemo} from 'react'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 import ActivitiesList from '../components/ActivitiesList/ActivitiesList'
@@ -64,7 +64,25 @@ export default function ActivitiesMainPage(props) {
     .catch(err => console.log(err))
   }, [])
 
-
+  const markersForActs = useMemo(() => 
+  activities.map(activ => {
+    return (
+    <Marker 
+    key={activ._id}
+    color = '#3E7B3E'
+    id = {activ._id}
+    longitude={activ.location.long}
+    latitude={activ.location.lat}
+    onClick= {(evt) => {
+      evt.originalEvent.stopPropagation();
+      setPopupInfo(activ);
+    }}
+  >
+    {console.log('rerender')}
+  </Marker>
+  )})
+  , [activities])
+  console.log(markersForActs)
   if (activities.length === 0  || sports.length === 0) {
     return <span>Loading...</span>
   }
@@ -90,24 +108,7 @@ export default function ActivitiesMainPage(props) {
       mapStyle="mapbox://styles/mapbox/streets-v9"
 
       >
-      {activities.map(activ => {
-        return (
-
-        <Marker 
-        key={activ._id}
-        color = '#3E7B3E'
-        id = {activ._id}
-        longitude={activ.location.long}
-        latitude={activ.location.lat}
-        onClick= {(evt) => {
-          evt.originalEvent.stopPropagation();
-          setPopupInfo(activ);
-        }}
-      >
-        {console.log('rerender')}
-      </Marker>
-        )
-      })}
+      {markersForActs}
       {popupInfo && (
         <Popup
         anchor = 'top'
