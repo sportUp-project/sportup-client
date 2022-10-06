@@ -36,6 +36,9 @@ function FollowingOverveiw() {
               <div className={"user-logo"}>
                 <img src={user.image} alt={user.name} />
                 <h3>{user.name}</h3>
+                <p>{user.description}</p>
+                <p><strong>Following: </strong>{user.follows.length}</p>
+                <p><strong>Followed by: </strong>{user.followers.length}</p>
               </div>
                 <SportsList sports={user.sports} />
             </div>
@@ -47,10 +50,10 @@ function FollowingOverveiw() {
                 <ActivitiesList activities={user.userActivities} />
               )}
             </div>
-            <div className="joined-by-following">
+            {user.joinedActivities.length!==0 && <div className="joined-by-following">
               <h4>Member of activities</h4>
               <ActivitiesList activities={user.joinedActivities} />
-            </div>
+            </div>}
           </div>
             </div>
         );
