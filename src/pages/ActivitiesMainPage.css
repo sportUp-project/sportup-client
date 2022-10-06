@@ -43,3 +43,9 @@
 .activities-main {
     margin-bottom: 5vh;
 }
+
+.popup {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em;
+}
