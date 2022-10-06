@@ -63,7 +63,7 @@ export default function ProfileDetails(props) {
         <h4>Sports: </h4>
         <div className="sports-holder">
           {userInfo.sports.map((sport) => {
-            return <SportCard sport={sport} />;
+            return <SportCard key={sport._id} sport={sport} />;
           })}
         </div>
         {loggedUser._id === userInfo._id && <Link className="button" to={`/profile/${user._id}/edit`}>Edit profile </Link>}

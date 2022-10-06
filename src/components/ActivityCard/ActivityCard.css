@@ -27,6 +27,7 @@
 .activity-card  h3 {
     white-space: nowrap;
     overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .activity-card  hr{    
