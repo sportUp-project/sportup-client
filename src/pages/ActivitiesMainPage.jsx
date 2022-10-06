@@ -9,10 +9,20 @@ export default function ActivitiesMainPage(props) {
   const [activities, setActivities] = useState([])
   const [sports,setSports] = useState([])
   
-  
+  function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+}
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_API_URL}/api/activities`)
     .then(response => {
+      // eslint-disable-next-line
+      const shuffledArr = shuffleArray(response.data)
+
       setActivities(response.data)
     })
     .catch(err => console.log(err))
