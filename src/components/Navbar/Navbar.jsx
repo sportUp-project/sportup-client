@@ -3,6 +3,7 @@ import { AuthContext } from '../../context/auth.context'
 import {useContext, useEffect, useState} from 'react'
 import {Link, useNavigate} from 'react-router-dom'
 import axios from 'axios'
+import LoadingSpiral from '../LoadingSpiral/LoadingSpiral'
 
 export default function Navbar(props) {
   const {user, isLoggedIn, logOutUser} = useContext(AuthContext)
@@ -30,7 +31,7 @@ export default function Navbar(props) {
 
   
   if (sports.length === 0) {
-    return <span>Loading</span>;
+    return <span><LoadingSpiral /></span>;
   }
 
 
