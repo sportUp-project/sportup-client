@@ -16,8 +16,6 @@ export default function Homepage() {
   const [sports, setSports] = useState("");
 
   
-
-
   useEffect(() => {
     axios
       .get(`${process.env.REACT_APP_API_URL}/api/sports`)
@@ -45,13 +43,13 @@ export default function Homepage() {
     setSearch(e.target.value);
   };
 
-  if (searchedData === null) {
-    return <span>Loading</span>;
+  if (searchedData === null || sports === null ) {
+    return <span>Loading...</span>;
   }
 
-  if (sports === null) {
-    return <span>Loading</span>;
-  }
+  // if (sports === null) {
+  //   return <span>Loading</span>;
+  // }
 
   const data = searchedData.filter((value) => {
     if (search === "") {
