@@ -3,7 +3,9 @@ import {useState, useEffect, useContext} from 'react'
 import { AuthContext } from '../../context/auth.context'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-import Map, {Marker} from 'react-map-gl'
+// @ts-ignore
+// eslint-disable-next-line import/no-webpack-loader-syntax
+import Map, {Marker} from '!react-map-gl'
 
 
 export default function ActivitiesAddForm(props) {
@@ -73,7 +75,7 @@ export default function ActivitiesAddForm(props) {
 
     <form onSubmit={handleSubmit}>
       <label htmlFor="name">Name</label>
-      <input type="text" name="name" id="name" value={name} onChange={e => setName(e.target.value)}  maxlength="22"/>
+      <input type="text" name="name" id="name" value={name} onChange={e => setName(e.target.value)}  maxLength="22"/>
 
       <label htmlFor="sport">Sport</label>
       <select name="sport" id="sport" onChange={e => setSport(e.target.value)} defaultValue="-- select a sport --">
