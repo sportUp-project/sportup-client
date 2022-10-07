@@ -78,18 +78,16 @@ export default function ActivitiesMainPage(props) {
       setPopupInfo(activ);
     }}
   >
-    {console.log('rerender')}
   </Marker>
   )})
   , [activities])
-  console.log(markersForActs)
+  
   if (activities.length === 0  || sports.length === 0) {
     return <span>Loading...</span>
   }
 
   const sportsCopy = [...sports]
   const sportsShortList = sportsCopy.slice(0,5)
-  console.log(popupInfo)
 
   return (
     <div className="activities-main">
@@ -104,7 +102,7 @@ export default function ActivitiesMainPage(props) {
       <Map
       className="activities-map"
       {...viewState}
-      style={{ height: 350, 'box-shadow': 'rgba(0, 0, 0, 0.452) 0px 5px 15px', 'margin-bottom':'30px' }}
+      style={{ height: 350, boxShadow: 'rgba(0, 0, 0, 0.452) 0px 5px 15px', marginBottom:'30px' }}
       onMove={(evt) => setViewState(evt.viewState)}
       mapStyle="mapbox://styles/mapbox/streets-v9"
 
