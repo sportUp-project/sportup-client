@@ -13,6 +13,20 @@ function FollowingOverveiw() {
   const [userFollows, setUserFollows] = useState(null);
   const [ users, setUsers ] = useState(null);
 
+  useEffect(() => {
+    axios
+      .get(
+        `${process.env.REACT_APP_API_URL}/profile/users`, 
+      {headers: {Authorization: `Bearer ${storedToken}`}}
+      )
+      .then((response) => {
+        const serchecdUsers = response.data;
+        setUsers(serchecdUsers);
+      })
+      .catch((err) => console.log(err));
+      // eslint-disable-next-line
+  }, []);
+
 
   useEffect(() => {
     axios
@@ -27,19 +41,6 @@ function FollowingOverveiw() {
       // eslint-disable-next-line
   }, []);
 
-  useEffect(() => {
-    axios
-      .get(
-        `${process.env.REACT_APP_API_URL}/profile/users`, 
-      {headers: {Authorization: `Bearer ${storedToken}`}}
-      )
-      .then((response) => {
-        const serchecdUsers = response.data;
-        setUsers(serchecdUsers);
-      })
-      .catch((err) => console.log(err));
-      // eslint-disable-next-line
-  }, []);
 
   if (userFollows === null || users === null ) {
     return <span><LoadingSpiral/></span>;
