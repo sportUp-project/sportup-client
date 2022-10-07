@@ -22,8 +22,12 @@ export default function ProfileDetails(props) {
     setShowListFollowing(!showListFollowing);
   };
 
-  
-
+  if (userInfo === null) {
+    return (
+      <span>Loading...</span>
+    )
+  }
+ 
   return (
     <div className="profile-holder">
       <div className="profile-info">
