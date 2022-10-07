@@ -5,7 +5,7 @@ import axios from "axios";
 import ActivitiesList from "../components/ActivitiesList/ActivitiesList";
 import SportsList from "../components/SportsList/SportsList";
 import "./HomePage.css";
-
+import LoadingSpiral from "../components/LoadingSpiral/LoadingSpiral";
 
 
 
@@ -44,12 +44,8 @@ export default function Homepage() {
   };
 
   if (searchedData === null || sports === null ) {
-    return <span>Loading...</span>;
+    return <span><LoadingSpiral /></span>;
   }
-
-  // if (sports === null) {
-  //   return <span>Loading</span>;
-  // }
 
   const data = searchedData.filter((value) => {
     if (search === "") {
@@ -80,7 +76,7 @@ export default function Homepage() {
   return (
     <div className="main-container">
     <div className="hiddenPreload">
-      
+
     </div>
       <section className='center-main'>
       <h1><span>Sport</span>UP</h1>
