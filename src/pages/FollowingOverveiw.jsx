@@ -29,7 +29,10 @@ function FollowingOverveiw() {
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_API_URL}/profile/users`)
+      .get(
+        `${process.env.REACT_APP_API_URL}/profile/users`, 
+      {headers: {Authorization: `Bearer ${storedToken}`}}
+      )
       .then((response) => {
         const serchecdUsers = response.data;
         setUsers(serchecdUsers);
