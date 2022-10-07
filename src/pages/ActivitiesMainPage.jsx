@@ -102,8 +102,9 @@ export default function ActivitiesMainPage(props) {
       </div>
 
       <Map
+      className="activities-map"
       {...viewState}
-      style={{ height: 350 }}
+      style={{ height: 350, 'box-shadow': 'rgba(0, 0, 0, 0.452) 0px 5px 15px', 'margin-bottom':'30px' }}
       onMove={(evt) => setViewState(evt.viewState)}
       mapStyle="mapbox://styles/mapbox/streets-v9"
 
@@ -120,7 +121,7 @@ export default function ActivitiesMainPage(props) {
             <span>{popupInfo.name}</span>
             <span>{popupInfo.sport.name}</span>
             <span>Created by: {popupInfo.createdBy.name}</span>
-              <Link to={`/activities/${popupInfo._id}`}>Go to details</Link>
+              <Link className='popup-link' to={`/activities/${popupInfo._id}`}>DETAILS</Link>
           </div>
         </Popup>
       )}
