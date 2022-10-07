@@ -54,3 +54,28 @@
         width: 80%;
     }
   }
+
+
+  .searched-users {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+
+  }
+
+  .search-friend {
+    margin-top: 40px;
+  }
+
+  .search-friend input {
+    border: none;
+    border-radius: 0;
+    box-sizing: border-box;
+    height: 30px;
+    width: 60vw;
+    padding-left: 30px; 
+    background-color: rgba(255, 255, 255, 0.7);  
+    box-shadow: 2px 5px 5px rgba(41, 41, 41, 0.644);
+    font-size: 16px;
+
+  }

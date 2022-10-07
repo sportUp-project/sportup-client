@@ -5,11 +5,14 @@ import axios from "axios";
 import SportsList from "../components/SportsList/SportsList";
 import "./FollowingOverveiw.css";
 import LoadingSpiral from "../components/LoadingSpiral/LoadingSpiral";
+import SearchUsers from "../components/SearchUsers/SearchUsers";
 
 function FollowingOverveiw() {
   const { id } = useParams();
   const storedToken = localStorage.getItem("authToken");
   const [userFollows, setUserFollows] = useState(null);
+  const [ users, setUsers ] = useState(null);
+
 
   useEffect(() => {
     axios
@@ -24,12 +27,26 @@ function FollowingOverveiw() {
       // eslint-disable-next-line
   }, []);
 
-  if (userFollows === null) {
+  useEffect(() => {
+    axios
+      .get(`${process.env.REACT_APP_API_URL}/profile/users`)
+      .then((response) => {
+        const serchecdUsers = response.data;
+        setUsers(serchecdUsers);
+      })
+      .catch((err) => console.log(err));
+      // eslint-disable-next-line
+  }, []);
+
+  if (userFollows === null || users === null ) {
     return <span><LoadingSpiral/></span>;
   }
 
   return (
     <div className="following-page-holder">
+      <div className="search-friend">
+      <SearchUsers searchedData={users}/>
+      </div> 
       {userFollows.map((user) => {
         return (
           <div className="following-user-holder" key={user._id}>

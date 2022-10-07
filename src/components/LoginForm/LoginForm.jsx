@@ -57,7 +57,6 @@ export default function LoginForm(props) {
         />
         {errorMessage && <p className="error-message">{errorMessage}</p>}
         <button className="button btn-login" type="submit">Login</button>
-        <button className="button btn-signup" type='submit'>Sign up</button>
       </form>
     </div>
   );

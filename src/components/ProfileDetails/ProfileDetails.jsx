@@ -44,18 +44,20 @@ export default function ProfileDetails(props) {
         )}
         {userInfo.follows.length > 0 && (
           <>
+          <Link to={`/profile/${userInfo._id}/following`}>
             <div className="follow-div"
               onMouseEnter={toggleShowListFollowing}
               onMouseLeave={toggleShowListFollowing}
             >
-              <Link to={`/profile/${userInfo._id}/following`}>
+              
                 {" "}
                 Follows: {userInfo.follows.length}
-              </Link>
+              
             </div>
             {showListFollowing && (
               <FollowersList followers={userInfo.follows} />
             )}
+            </Link>
           </>
         )}
         {userInfo._id !== user._id && (

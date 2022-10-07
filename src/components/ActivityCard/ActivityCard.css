@@ -65,16 +65,16 @@
     position: relative;
 } 
 
-.activity-card .user-info:not(:first-child) {
+.activity-card .user-infos:not(:first-child) {
     margin-left: -10px;
 }
 
-.activity-card .user-info:hover {
+.activity-card .user-infos:hover {
   transform: translateY(-8px);
   transition: 0.4s ease-out;
 }
 
-.activity-card .user-icon .user-info{
+.activity-card .user-icon .user-infos{
     height: 40px;
     width: 40px;
    
