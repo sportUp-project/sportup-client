@@ -4,6 +4,7 @@ import ActivitiesList from "../components/ActivitiesList/ActivitiesList";
 import axios from "axios";
 import SportsList from "../components/SportsList/SportsList";
 import "./FollowingOverveiw.css";
+import LoadingSpiral from "../components/LoadingSpiral/LoadingSpiral";
 
 function FollowingOverveiw() {
   const { id } = useParams();
@@ -24,7 +25,7 @@ function FollowingOverveiw() {
   }, []);
 
   if (userFollows === null) {
-    return <span>Loading</span>;
+    return <span><LoadingSpiral/></span>;
   }
 
   return (

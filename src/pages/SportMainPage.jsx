@@ -5,6 +5,7 @@ import Search from '../components/Search/Search';
 import { AuthContext } from "../context/auth.context";
 import SportCard from '../components/SportCard/SportCard';
 import './SportMainPage.css'
+import LoadingSpiral from '../components/LoadingSpiral/LoadingSpiral';
 
 
 function SportMainPage(props) {
@@ -20,7 +21,7 @@ function SportMainPage(props) {
 
   
     if (sport === null) {
-        return <span>Loading...</span>
+        return <span><LoadingSpiral/></span>
       }
 
     return (

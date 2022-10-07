@@ -1,5 +1,6 @@
 import SportCard from "../SportCard/SportCard"
 import './SportsList.css'
+import LoadingSpiral from "../LoadingSpiral/LoadingSpiral"
 export default function SportsList(props) {
   const {sports, showDetails} = props
   // to add : show only 5 most popular sports 
@@ -7,7 +8,7 @@ export default function SportsList(props) {
   
   if (sports === null) {
     return (
-      <span>Loading...</span>
+      <span><LoadingSpiral /></span>
     )
   }
 

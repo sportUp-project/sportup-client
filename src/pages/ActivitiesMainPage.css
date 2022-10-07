@@ -43,3 +43,16 @@
 .activities-main {
     margin-bottom: 5vh;
 }
+
+.popup {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em;
+}
+.popup-link {
+    color: #3E7B3E;
+    cursor: pointer;
+}
+.activities-map {
+    box-shadow: rgba(0, 0, 0, 0.452) 0px 5px 15px;
+}

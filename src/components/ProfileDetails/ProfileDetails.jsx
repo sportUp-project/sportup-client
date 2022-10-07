@@ -8,6 +8,7 @@ import SportCard from "../SportCard/SportCard";
 import { AuthContext } from "../../context/auth.context";
 import { useContext } from "react";
 import ActivitiesList from "../ActivitiesList/ActivitiesList";
+import LoadingSpiral from "../LoadingSpiral/LoadingSpiral";
 
 export default function ProfileDetails(props) {
   const { userInfo, user, setUserInfo } = props;
@@ -22,6 +23,11 @@ export default function ProfileDetails(props) {
     setShowListFollowing(!showListFollowing);
   };
 
+  if (userInfo === null) {
+    return (
+      <span><LoadingSpiral /></span>
+    )
+  }
  
   return (
     <div className="profile-holder">
