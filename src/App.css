@@ -60,3 +60,8 @@ input:focus {
   outline: none;
   background-color: white;
 }
+
+a.mapboxgl-ctrl-logo,
+.mapboxgl-ctrl-attrib-inner {
+  display: none;
+}
