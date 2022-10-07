@@ -2,7 +2,7 @@ import {useParams} from 'react-router-dom'
 import {useState, useEffect} from 'react'
 import axios from 'axios'
 import ActivitiesEditForm from '../components/ActivitiesEditForm/ActivitiesEditForm'
-
+import LoadingSpiral from '../components/LoadingSpiral/LoadingSpiral'
 
 export default function ActivitiesEdit(props) {
   const {id} = useParams()
@@ -20,7 +20,7 @@ export default function ActivitiesEdit(props) {
   }, [])
   
   if (activity === null) {
-    return <span>loading</span>
+    return <span><LoadingSpiral/></span>
   }
 
   return (

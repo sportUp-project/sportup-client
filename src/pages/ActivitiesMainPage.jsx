@@ -4,6 +4,7 @@ import axios from 'axios'
 import ActivitiesList from '../components/ActivitiesList/ActivitiesList'
 import SportsList from '../components/SportsList/SportsList'
 import SportsDropdown from '../components/SportsDropdown/SportsDropdown'
+import LoadingSpiral from '../components/LoadingSpiral/LoadingSpiral'
 import './ActivitiesMainPage.css'
 // @ts-ignore
 // eslint-disable-next-line import/no-webpack-loader-syntax
@@ -83,7 +84,7 @@ export default function ActivitiesMainPage(props) {
   , [activities])
   
   if (activities.length === 0  || sports.length === 0) {
-    return <span>Loading...</span>
+    return <span><LoadingSpiral/></span>
   }
 
   const sportsCopy = [...sports]
