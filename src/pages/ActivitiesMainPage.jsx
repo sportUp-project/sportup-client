@@ -104,7 +104,7 @@ export default function ActivitiesMainPage(props) {
       {...viewState}
       style={{ height: 350, boxShadow: 'rgba(0, 0, 0, 0.452) 0px 5px 15px', marginBottom:'30px' }}
       onMove={(evt) => setViewState(evt.viewState)}
-      mapStyle="mapbox://styles/mapbox/streets-v9"
+      mapStyle="mapbox://styles/mapbox/light-v10"
 
       >
       {markersForActs}

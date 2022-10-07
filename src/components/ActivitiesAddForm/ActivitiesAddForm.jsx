@@ -103,7 +103,7 @@ export default function ActivitiesAddForm(props) {
       {...viewState}
       style={{ height: 350, width: 350 }}
       onMove={(evt) => setViewState(evt.viewState)}
-      mapStyle="mapbox://styles/mapbox/streets-v9"
+      mapStyle="mapbox://styles/mapbox/light-v10"
 
     >
       <Marker
