@@ -16,7 +16,7 @@ function FollowingOverveiw() {
   useEffect(() => {
     axios
       .get(
-        `${process.env.REACT_APP_API_URL}/profile/users`, 
+        `${process.env.REACT_APP_API_URL}/profile/allUsers`, 
       {headers: {Authorization: `Bearer ${storedToken}`}}
       )
       .then((response) => {
