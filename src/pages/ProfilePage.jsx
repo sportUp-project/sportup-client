@@ -3,6 +3,7 @@ import {  useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import ProfileDetails from '../components/ProfileDetails/ProfileDetails'
 import axios from "axios";
+import LoadingSpiral from "../components/LoadingSpiral/LoadingSpiral";
 
 export default function ProfilePage(props) {
   const { user } = useContext(AuthContext);
@@ -31,7 +32,7 @@ export default function ProfilePage(props) {
   }, [pageUserId]);
 
   if (userInfo === null) {
-    return <span>Loading</span>;
+    return <span><LoadingSpiral/></span>;
   }
 
   return (

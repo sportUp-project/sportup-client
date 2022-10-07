@@ -2,6 +2,7 @@ import "./ProfileEditForm.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import LoadingSpiral from "../LoadingSpiral/LoadingSpiral";
 
 export default function ProfileEditForm(props) {
   const { userInfo } = props;
@@ -65,7 +66,7 @@ export default function ProfileEditForm(props) {
   }
 
   if (!user) {
-    return <p>loading</p>;
+    return <p><LoadingSpiral /></p>;
   }
 
   return (

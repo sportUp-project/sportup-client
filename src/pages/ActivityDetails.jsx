@@ -8,6 +8,7 @@ import { AuthContext } from "../context/auth.context";
 import './ActivityDetails.css'
 import SportCard from "../components/SportCard/SportCard";
 import { v4 as uuidv4 } from 'uuid';
+import LoadingSpiral from "../components/LoadingSpiral/LoadingSpiral";
 
 
 export default function ActivityDetails(props) {
@@ -112,7 +113,7 @@ export default function ActivityDetails(props) {
 
   //show loading while fetching the data
   if (activity === null) {
-    return <span>Loading...</span>;
+    return <span><LoadingSpiral /></span>;
   }
 
   function renderJoinButton() {

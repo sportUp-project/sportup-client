@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../context/auth.context";
 import ProfileEditForm from "../components/ProfileEditForm/ProfileEditForm";
+import LoadingSpiral from "../components/LoadingSpiral/LoadingSpiral";
 
 export default function ProfileEditPage(props) {
   const [userInfo, setUserInfo] = useState(null);
@@ -36,7 +37,7 @@ export default function ProfileEditPage(props) {
 
   // show loading until page is ready
   if (!userInfo) {
-    return <span>loading</span>;
+    return <span><LoadingSpiral/></span>;
   }
 
   return (
