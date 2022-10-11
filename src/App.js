@@ -13,6 +13,7 @@ import FollowingOverveiw from './pages/FollowingOverveiw';
 import ActivitiesEdit from './pages/ActivitiesEdit'
 import Footer from './components/Footer/Footer';
 import AboutPage from './pages/AboutPage'
+import PageNotFound from './pages/PageNotFound'
 
 import './App.css';
 
@@ -33,6 +34,7 @@ function App() {
         <Route path={'/activities/sport/:id'} element={<SportMainPage />} />
         <Route path={'/profile/:id/following'} element={<FollowingOverveiw />} />
         <Route path={'/about'} element={<AboutPage />} /> 
+        <Route path={"*"} element={<PageNotFound />} />
       </Routes>
       <Footer/>
     </div>
