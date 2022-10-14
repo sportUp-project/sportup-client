@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+# SportUP client
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the client side of our last project at Ironhack - SportUP - [to app!](https://sportup-app.netlify.app/).
 
-## Available Scripts
+A short presentation about the project - [click me!](https://docs.google.com/presentation/d/1FKChSV9j9FMIUJGQxeNT3PMdYihqTrCzNXUGB67TmyA/edit?usp=sharing)
 
-In the project directory, you can run:
+## Introduction
 
-### `npm start`
+This is our final project at Ironhack Berlin - building a full stack application with
+ReactJS on the front end and creating a RESTful API to serve the backend. The goal of our app is to
+connect people who love sports, love being active, but might have found themselves in a new city,
+or just their training partner is busy. We all know that training with a partner is better - you
+achieve your goals faster, it's more fun and you keep each other sticking to a schedule!
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Users can register, take a look at all the activities or create their own choosing from a list
+of more than 15 sports. They can also follow other user's to quickly see what their activities
+are. We wanted to create a simple, clean design that looks good on all resolutions and screen sizes.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Technical skills
 
-### `npm test`
+- HTML5
+- CSS
+- JavaScript
+- Axios
+- Express JS
+- Node JS
+- React
+- MongoDB
+- Mongoose
+- Mapbox GL 
+- Cloudinary & Mutler
+- Netlify hosting
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## User stories
 
-### `npm run build`
+- Sign up & Log in - As a user, I should be able to register quickly to get access to all parts of the website.
+- My profile - I should have access to my profile page, where I can set a profile picture, choose my favorite sports and
+edit all my information.
+- Log out - I should be able to log out so no one can access my account if they get access to my computer.
+- Landing page - I should be greeted by a beautiful landing page that inspires me to browse through all the activities and sports.
+I should be able to choose quickly from the most popular sports, see all sports or see all activities
+- Sports pages - I should be able to browse activities from a certain sports category
+- Locations - I should be able to see quickly on a map where exactly the activity will take place, or, when creating an activity
+I should be able to place precisely the location
+- Searching - I should be able to quickly search for an activity based on its name
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
