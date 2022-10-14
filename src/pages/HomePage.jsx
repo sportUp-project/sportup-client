@@ -96,7 +96,7 @@ export default function Homepage() {
             <Link className="button" to={`profile/${user._id}/`}>
               Profile
             </Link>
-            <Link className="button" to="/logut">
+            <Link className="button" to="/logout">
               Log out
             </Link>
           </div>
